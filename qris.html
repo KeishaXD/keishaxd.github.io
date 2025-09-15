@@ -53,6 +53,11 @@
       }
     }
     setInitialMode();
+    // Jika user sudah pernah klik tombol di halaman utama, selalu pakai localStorage, override prefers-color-scheme
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (!savedTheme) setInitialMode();
+    });
   </script>
 </body>
 </html>

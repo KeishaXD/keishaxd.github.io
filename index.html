@@ -62,8 +62,8 @@
           .github:hover   { background: #555; }
           .instagram{ background: #E1306C; }
           .instagram:hover{ background: #c72c61; }
-        .qris     { background: #ed133b; }
-        .qris:hover     { background: #b80f2e; }
+          .qris     { background: #ed133b; }
+          .qris:hover     { background: #b80f2e; }
           .saweria  { background: #FF6500; }
           .saweria:hover  { background: #cc5200; }
           .telegram { background: #0088cc; }
@@ -79,10 +79,10 @@
         position: fixed;
         top: 24px;
         right: 24px;
-        background: rgba(255,255,255,0.85);
-        border: 2px solid #d1b97a;
-        border-radius: 50%;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid #d1b97a;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
         cursor: pointer;
         font-size: 2rem;
         z-index: 100;
@@ -120,9 +120,10 @@
               color: #fff;
             }
             #toggle-mode {
-          color: #f1c40f;
-          background: rgba(35,41,58,0.85);
-          border: 2px solid #f1c40f;
+              color: #f1c40f;
+              background: rgba(35,41,58,0.85);
+              border: 1.5px solid #f1c40f;
+              border-radius: 8px;
             }
           }
           @media (prefers-color-scheme: light) {
@@ -183,9 +184,16 @@
 
           btn.onclick = function() {
             const isDark = document.body.classList.toggle('dark-mode');
+            // Jika dark-mode aktif, simpan 'dark', jika tidak simpan 'light'
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
             updateIcon();
           };
+
+          // Jika user sudah pernah klik tombol, selalu pakai localStorage, override prefers-color-scheme
+          window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (!savedTheme) setInitialMode();
+          });
         </script>
       </body>
       </html>
