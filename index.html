@@ -8,182 +8,189 @@
   <style>
     /* Reset & Base */
     body {
-      background: #E2CEB1;
-      color: #3b2f2f;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      margin: 0;
-      min-height: 100vh;
-      transition: background 0.5s, color 0.5s;
-    }
+      <!DOCTYPE html>
+      <html lang="id">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>KeishaXD Linktree</title>
+        <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KeishaXD/keishaxd.github.io/main/asset/pict/favicon.png" />
+        <style>
+          body {
+            background: #E2CEB1;
+            color: #3b2f2f;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 0;
+            min-height: 100vh;
+            transition: background 0.5s, color 0.5s;
+          }
+          .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            object-fit: cover;
+            border: 2px solid #fff;
+          }
+          h1 {
+            margin-top: 15px;
+            font-size: 24px;
+          }
+          .links {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+          }
+          .link {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            background: gray;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: translateY(0);
+          }
+          .link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+          }
+          .email    { background: #0072C6; }
+          .email:hover    { background: #005fa3; }
+          .facebook { background: #1877F2; }
+          .facebook:hover { background: #145dbf; }
+          .github   { background: #333; }
+          .github:hover   { background: #555; }
+          .instagram{ background: #E1306C; }
+          .instagram:hover{ background: #c72c61; }
+          .qris     { background: #FF4444; }
+          .qris:hover     { background: #cc0000; }
+          .saweria  { background: #FF6500; }
+          .saweria:hover  { background: #cc5200; }
+          .telegram { background: #0088cc; }
+          .telegram:hover { background: #007ab8; }
+          .youtube  { background: #FF0000; }
+          .youtube:hover  { background: #cc0000; }
+          footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #555;
+          }
+          #toggle-mode {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            z-index: 100;
+            color: #3b2f2f;
+            transition: color 0.3s;
+          }
+          #toggle-mode:focus {
+            outline: 2px solid #0072C6;
+          }
+          @media (min-width: 768px) {
+            body {
+              padding: 80px 40px;
+            }
+            .profile-pic {
+              width: 150px;
+              height: 150px;
+            }
+            h1 {
+              font-size: 32px;
+            }
+            .links {
+              max-width: 600px;
+            }
+            .link {
+              padding: 20px;
+              font-size: 18px;
+            }
+          }
+          @media (prefers-color-scheme: dark) {
+            body {
+              background: #23293a;
+              color: #f1f1f1;
+            }
+            footer {
+              color: #fff;
+            }
+            #toggle-mode {
+              color: #f1c40f;
+            }
+          }
+          @media (prefers-color-scheme: light) {
+            body {
+              background: #E2CEB1;
+              color: #3b2f2f;
+            }
+            footer {
+              color: #555;
+            }
+            #toggle-mode {
+              color: #3b2f2f;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <img src="https://raw.githubusercontent.com/KeishaXD/keishaxd.github.io/main/asset/pict/header.jpg" alt="Foto Profil" class="profile-pic" />
+        <h1>KeishaXD</h1>
+        <button id="toggle-mode" aria-label="Toggle dark mode">
+          <span id="toggle-icon">🌙</span>
+        </button>
+        <div class="links">
+          <a class="link email" href="mailto:blackopolotong@gmail.com">Email</a>
+          <a class="link facebook" href="https://facebook.com/JovallinKRD" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a class="link github" href="https://github.com/KeishaXD" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="link instagram" href="https://instagram.com/jkrd.ig" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="link qris" href="qris.html" target="_blank" rel="noopener noreferrer">Donate via QRIS (Indonesia)</a>
+          <a class="link saweria" href="https://saweria.co/Keisha" target="_blank" rel="noopener noreferrer">Donate Via Saweria (Indonesia)</a>
+          <a class="link telegram" href="https://t.me/keishaxd" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a class="link youtube" href="https://youtube.com/keduakolo" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+        <footer>&copy; 2025 KeishaXD</footer>
+        <script>
+          // Toggle dark/light mode
+          const btn = document.getElementById('toggle-mode');
+          const icon = document.getElementById('toggle-icon');
 
-    /* Profile Picture */
-    .profile-pic {
-      width: 100px;
-      height: 100px;
-      border-radius: 100%;
-      object-fit: cover;
-      border: 2px solid #fff;
-    }
+          function updateIcon() {
+            icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+          }
 
-    /* Heading */
-    h1 {
-      margin-top: 15px;
-      font-size: 24px;
-    }
+          function setInitialMode() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+              document.body.classList.add('dark-mode');
+            } else if (savedTheme === 'light') {
+              document.body.classList.remove('dark-mode');
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.body.classList.add('dark-mode');
+            } else {
+              document.body.classList.remove('dark-mode');
+            }
+            updateIcon();
+          }
 
-    /* Links Container */
-    .links {
-      margin-top: 30px;
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+          setInitialMode();
 
-    /* Link Button */
-    .link {
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      background: gray;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transform: translateY(0);
-    }
-    .link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-    }
-
-    /* Link Colors */
-    .email    { background: #0072C6; }
-    .email:hover    { background: #005fa3; }
-    .facebook { background: #1877F2; }
-    .facebook:hover { background: #145dbf; }
-    .github   { background: #333; }
-    .github:hover   { background: #555; }
-    .instagram{ background: #E1306C; }
-    .instagram:hover{ background: #c72c61; }
-    .qris     { background: #FF4444; }
-    .qris:hover     { background: #cc0000; }
-    .saweria  { background: #FF6500; }
-    .saweria:hover  { background: #cc5200; }
-    .telegram { background: #0088cc; }
-    .telegram:hover { background: #007ab8; }
-    .youtube  { background: #FF0000; }
-    .youtube:hover  { background: #cc0000; }
-
-    /* Footer */
-    footer {
-      margin-top: 40px;
-      font-size: 12px;
-      color: #555;
-    }
-
-    /* Toggle Button */
-    #toggle-mode {
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 2rem;
-      z-index: 100;
-      color: #3b2f2f;
-      transition: color 0.3s;
-    }
-    #toggle-mode:focus {
-      outline: 2px solid #0072C6;
-    }
-
-    /* Responsive */
-    @media (min-width: 768px) {
-      body {
-        padding: 80px 40px;
-      }
-      .profile-pic {
-        width: 150px;
-        height: 150px;
-      }
-      h1 {
-        font-size: 32px;
-      }
-      .links {
-        max-width: 600px;
-      }
-      .link {
-        padding: 20px;
-        font-size: 18px;
-      }
-    }
-
-    /* Dark/Light Mode Adaptif */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: #23293a;
-        color: #f1f1f1;
-      }
-      footer {
-        color: #fff;
-      }
-      #toggle-mode {
-        color: #f1c40f;
-      }
-    }
-    @media (prefers-color-scheme: light) {
-      body {
-        background: #E2CEB1;
-        color: #3b2f2f;
-      }
-      footer {
-        color: #555;
-      }
-      #toggle-mode {
-        color: #3b2f2f;
-      }
-    }
-  </style>
-  </style>
-
-  <script>
-    // Toggle dark/light mode
-    const btn = document.getElementById('toggle-mode');
-    const icon = document.getElementById('toggle-icon');
-
-    function updateIcon() {
-      icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    }
-
-    function setInitialMode() {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-      } else if (savedTheme === 'light') {
-        document.body.classList.remove('dark-mode');
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark-mode');
-      } else {
-        document.body.classList.remove('dark-mode');
-      }
-      updateIcon();
-    }
-
-    setInitialMode();
-
-    btn.onclick = function() {
-      const isDark = document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateIcon();
-    };
-  </script>
-</body>
-</html>
+          btn.onclick = function() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateIcon();
+          };
+        </script>
+      </body>
+      </html>
