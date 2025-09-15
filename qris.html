@@ -22,17 +22,10 @@
       background: #23293a;
       color: #f1f1f1;
     }
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: #23293a;
-        color: #f1f1f1;
-      }
-    }
-    @media (prefers-color-scheme: light) {
-      body {
-        background: #E2CEB1;
-        color: #3b2f2f;
-      }
+    /* Tidak ada mode adaptif, hanya manual dark-mode */
+    body.dark-mode {
+      background: #23293a;
+      color: #f1f1f1;
     }
   </style>
 </head>
@@ -44,19 +37,16 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
-      } else if (savedTheme === 'light') {
-        document.body.classList.remove('dark-mode');
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark-mode');
       } else {
         document.body.classList.remove('dark-mode');
       }
     }
+    // Terapkan mode sesuai localStorage setiap kali halaman dibuka
     setInitialMode();
-    // Jika user sudah pernah klik tombol di halaman utama, selalu pakai localStorage, override prefers-color-scheme
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
-      const savedTheme = localStorage.getItem('theme');
-      if (!savedTheme) setInitialMode();
+
+    // Sinkronisasi jika localStorage diubah dari tab lain (misal, user klik tombol di index.html)
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'theme') setInitialMode();
     });
   </script>
 </body>
