@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KeishaXD Linktree</title>
+  <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/KeishaXD/keishaxd.github.io/main/asset/pict/favicon.png" />
+
+  <style>
+    /* STYLE DASAR */
+    body {
+      background: #E2CEB1;
+      color: #3b2f2f;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      margin: 0;
+      min-height: 100vh;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    h1 {
+      margin-top: 15px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      border-radius: 100%;
+      object-fit: cover;
+      border: 2px solid #fff;
+    }
+
+    /* KATEGORI / SECTION */
+    .category-title {
+      margin-top: 35px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: left;
+      width: 100%;
+      max-width: 400px;
+      opacity: .9;
+      border-left: 4px solid #3b2f2f;
+      padding-left: 10px;
+    }
+
+    body.dark-mode .category-title {
+      border-left: 4px solid #f1c40f;
+    }
+
+    /* LIST LINK */
+    .links {
+      margin-top: 15px;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .link {
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      background: gray;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.25s ease;
+    }
+
+    .link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.26);
+    }
+
+    /* Warna tombol */
+    .email    { background: #6001D2; }
+    .facebook { background: #1877F2; }
+    .github   { background: #333; }
+    .instagram{ background: #833AB4; }
+    .qris     { background: #ed133b; }
+    .saweria  { background: #FF6500; }
+    .telegram { background: #0088cc; }
+    .youtube  { background: #FF0000; }
+
+    /* TOGGLE MODE (NEW STYLE) */
+    #toggle-mode {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: 48px;
+    height: 48px;
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.85);
+    border: 1.5px solid #d1b97a;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+    cursor: pointer;
+    font-size: 2rem;
+    color: #3b2f2f;
+    transition: 0.3s;
+    }
+
+
+
+    #toggle-mode:hover {
+      transform: scale(1.07);
+    }
+
+    body.dark-mode #toggle-mode {
+      background: rgba(35,41,58,0.85);
+      color: #f1c40f;
+    }
+
+    /* DARK MODE */
+    body.dark-mode {
+      background: #23293a;
+      color: #f1f1f1;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- FOTO PROFIL -->
+  <img src="https://raw.githubusercontent.com/KeishaXD/keishaxd.github.io/main/asset/pict/header.jpg"
+       alt="Foto Profil" class="profile-pic" />
+
+  <h1>KeishaXD</h1>
+
+  <!-- TOMBOL MODE -->
+  <button id="toggle-mode" aria-label="Ganti Tema">🌙</button>
+
+
+  <!-- SECTION: PORTFOLIO -->
+  <div class="category-title">Portfolio</div>
+  <div class="links">
+    <a class="link github" href="https://github.com/KeishaXD">GitHub Project</a>
+  </div>
+
+  <!--SECTION: SOSIAL MEDIA-->
+  <div class="category-title">Social Media</div>
+  <div class="links">
+    <a class="link facebook" href="https://facebook.com/JovallinKRD">Facebook</a>
+    <a class="link instagram" href="https://instagram.com/jkrd.ig">Instagram</a>
+    <a class="link telegram" href="https://t.me/keishaxd">Telegram</a>
+    <a class="link youtube" href="https://youtube.com/keduakolo">YouTube</a>
+  </div>
+
+  <!--SECTION: DONATE-->
+  <div class="category-title">Donate</div>
+  <div class="links">
+    <a class="link qris" href="qris.html" target="_blank">Donate via QRIS</a>
+    <a class="link saweria" href="https://saweria.co/Keisha">Saweria</a>
+  </div>
+
+  <!-- EMAIL (kategori terpisah) -->
+  <div class="category-title">Kontak</div>
+  <div class="links">
+    <a class="link email" href="mailto:blackopolotong@gmail.com">Email</a>
+  </div>
+
+  <footer>&copy; 2025 KeishaXD</footer>
+
+  <script>
+    /* JAVASCRIPT TEMA / MODE */
+
+    const btn = document.getElementById('toggle-mode');
+
+    // Ubah ikon sesuai mode
+    function updateIcon() {
+      btn.textContent = document.body.classList.contains("dark-mode")
+        ? "☀️"   // mode gelap → ikon matahari
+        : "🌙";  // mode terang → ikon bulan
+    }
+
+    // Ketika halaman dibuka, cek localStorage
+    function initTheme() {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") document.body.classList.add("dark-mode");
+      updateIcon();
+    }
+
+    // Jalankan saat load page
+    initTheme();
+
+    // Klik tombol toggle
+    btn.onclick = function () {
+      document.body.classList.toggle("dark-mode");
+      const dark = document.body.classList.contains("dark-mode");
+
+      // simpan preferensi
+      localStorage.setItem("theme", dark ? "dark" : "light");
+
+      // update ikon
+      updateIcon();
+    };
+  </script>
+
+</body>
+</html>

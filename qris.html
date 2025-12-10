@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>QRIS KeishaXD</title>
+  <style>
+    body {
+      background: #E2CEB1;
+      color: #3b2f2f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      transition: background 0.5s, color 0.5s;
+    }
+    img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    body.dark-mode {
+      background: #23293a;
+      color: #f1f1f1;
+    }
+    /* Tidak ada mode adaptif, hanya manual dark-mode */
+    body.dark-mode {
+      background: #23293a;
+      color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://raw.githubusercontent.com/KeishaXD/keishaxd.github.io/main/asset/pict/qris-code.png" alt="QRIS Code" />
+  <script>
+    // Sinkronisasi mode gelap/terang dengan localStorage
+    function setInitialMode() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    }
+    // Terapkan mode sesuai localStorage setiap kali halaman dibuka
+    setInitialMode();
+
+    // Sinkronisasi jika localStorage diubah dari tab lain (misal, user klik tombol di index.html)
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'theme') setInitialMode();
+    });
+  </script>
+</body>
+</html>
