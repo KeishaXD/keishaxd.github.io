@@ -80,51 +80,69 @@
       box-shadow: 0 6px 14px rgba(0,0,0,0.26);
     }
 
-    /* Warna tombol */
+    /* WARNA LINK */
     .email    { background: #6001D2; }
     .facebook { background: #1877F2; }
     .github   { background: #333; }
     .instagram{ background: #833AB4; }
-    .paypal   { background: #003087;}
-    .portofoliio { background: #7C3AED;}
+    .paypal   { background: #003087; }
+    .portofoliio { background: #7C3AED; }
     .qris     { background: #ed133b; }
     .saweria  { background: #FF6500; }
     .telegram { background: #0088cc; }
     .youtube  { background: #FF0000; }
 
-    /* TOGGLE MODE (NEW STYLE) */
-    #toggle-mode {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-
-    width: 48px;
-    height: 48px;
-    display: flex;
-   
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(255,255,255,0.85);
-    border: 1.5px solid #d1b97a;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-
-    cursor: pointer;
-    font-size: 2rem;
-    color: #3b2f2f;
-    transition: 0.3s;
+    /* SWITCH TOGGLE — aesthetic mode */
+    .switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: inline-block;
+      width: 60px;
+      height: 32px;
+      z-index: 1000;
     }
 
-
-
-    #toggle-mode:hover {
-      transform: scale(1.07);
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
     }
 
-    body.dark-mode #toggle-mode {
-      background: rgba(35,41,58,0.85);
-      color: #f1c40f;
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #3b2f2f; /* Light mode: slider gelap */
+      border-radius: 34px;
+      transition: .3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+
+    .slider::before {
+      position: absolute;
+      content: "🌞"; /* Light mode icon */
+      height: 26px;
+      width: 26px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      border-radius: 50%;
+      transition: .3s;
+    }
+
+    /* DARK MODE slider aesthetic */
+    .switch input:checked + .slider {
+      background-color: #D9C5A3; /* Dark mode: cream aesthetic */
+    }
+
+    .switch input:checked + .slider::before {
+      transform: translateX(28px);
+      content: "🌙"; /* Dark mode icon */
     }
 
     /* DARK MODE */
@@ -133,10 +151,8 @@
       color: #f1f1f1;
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 12px;
-      opacity: 0.7;
+    body.dark-mode .link {
+      color: #fff;
     }
   </style>
 
@@ -149,18 +165,20 @@
 
   <h1>KeishaXD</h1>
 
-  <!-- TOMBOL MODE -->
-  <button id="toggle-mode" aria-label="Ganti Tema">🌙</button>
+  <!-- SWITCH MODE -->
+  <label class="switch" aria-label="Ganti Tema">
+    <input type="checkbox" id="toggle-mode" aria-checked="false" />
+    <span class="slider" role="presentation"></span>
+  </label>
 
-
-  <!-- SECTION: PORTFOLIO -->
+  <!-- PORTFOLIO -->
   <div class="category-title">Portfolio</div>
   <div class="links">
     <a class="link github" href="https://github.com/KeishaXD">GitHub Project</a>
     <a class="link portofoliio" href="https://keishaxd.github.io/portfolio.github.io/">Portofolio</a>
   </div>
 
-  <!--SECTION: SOSIAL MEDIA-->
+  <!-- SOCIAL MEDIA -->
   <div class="category-title">Social Media</div>
   <div class="links">
     <a class="link facebook" href="https://facebook.com/JovallinKRD">Facebook</a>
@@ -169,14 +187,14 @@
     <a class="link youtube" href="https://youtube.com/keduakolo">YouTube</a>
   </div>
 
-  <!--SECTION: DONATE-->
+  <!-- DONATE -->
   <div class="category-title">Donate</div>
   <div class="links">
     <a class="link qris" href="qris.html" target="_blank">QRIS</a>
     <a class="link paypal" href="paypal.html">Paypal</a>
   </div>
 
-  <!-- EMAIL (kategori terpisah) -->
+  <!-- KONTAK -->
   <div class="category-title">Kontak</div>
   <div class="links">
     <a class="link email" href="mailto:blackopolotong@gmail.com">Email</a>
@@ -184,39 +202,32 @@
 
   <footer>&copy; 2025 KeishaXD</footer>
 
+  <!-- THEME SCRIPT -->
   <script>
-    /* JAVASCRIPT TEMA / MODE */
+    const toggle = document.getElementById("toggle-mode");
 
-    const btn = document.getElementById('toggle-mode');
-
-    // Ubah ikon sesuai mode
-    function updateIcon() {
-      btn.textContent = document.body.classList.contains("dark-mode")
-        ? "☀️"   // mode gelap → ikon matahari
-        : "🌙";  // mode terang → ikon bulan
-    }
-
-    // Ketika halaman dibuka, cek localStorage
-    function initTheme() {
-      const saved = localStorage.getItem("theme");
-      if (saved === "dark") document.body.classList.add("dark-mode");
-      updateIcon();
-    }
-
-    // Jalankan saat load page
-    initTheme();
-
-    // Klik tombol toggle 
-    btn.onclick = function () {
-      document.body.classList.toggle("dark-mode");
-      const dark = document.body.classList.contains("dark-mode");
-
-      // simpan preferensi
+    function setTheme(dark) {
+      if (dark) {
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+      } else {
+        document.body.classList.remove("dark-mode");
+        toggle.checked = false;
+      }
       localStorage.setItem("theme", dark ? "dark" : "light");
+    }
 
-      // update ikon
-      updateIcon();
-    };
+    // Saat halaman dibuka
+    (function () {
+      const saved = localStorage.getItem("theme");
+      const isDark = saved === "dark";
+      setTheme(isDark);
+    })();
+
+    // Saat toggle ditekan
+    toggle.addEventListener("change", () => {
+      setTheme(toggle.checked);
+    });
   </script>
 
 </body>
