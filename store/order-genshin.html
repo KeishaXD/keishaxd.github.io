@@ -300,6 +300,7 @@ footer {
       <li>Dilarang login selama proses joki berjalan.</li>
       <li>Estimasi pengerjaan 1–24 jam tergantung paket.</li>
       <li>Dengan memesan berarti setuju dengan ketentuan kami.</li>
+      <li>Opsi login hanya tersedia untuk Hoyoverse, Google, dan Facebook.</li>
     </ul>
   </div>
 
@@ -308,12 +309,29 @@ footer {
       <input type="text" id="nama" placeholder="Nama Anda" required>
       <input type="text" id="uid" placeholder="UID Genshin" required>
 
+      <select id="server" required>
+        <option value="">Pilih Server</option>
+        <option>North America</option>
+        <option>Europe</option>
+        <option>Asia</option>
+        <option>TW/HK/MO</option>
+      </select>
+
+      <select id="login" required>
+        <option value="">Pilih Opsi Login</option>
+        <option>Hoyoverse</option>
+        <option>Google</option>
+        <option>Facebook</option>
+      </select>
+
       <select id="paket" required>
-        <option value="">Pilih Paket</option>
+        <option value="">Pilih Joki</option>
         <option>Daily Commission</option>
-        <option>Spiral Abyss</option>
+        <option>Joki Quest</option>
+        <option>Joki Event</option>
         <option>Farm Artifact</option>
         <option>Boss Farming</option>
+        <option>Open Map</option>
       </select>
 
       <textarea id="catatan" rows="4" placeholder="Catatan Tambahan (Opsional)"></textarea>
@@ -369,6 +387,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     Nama: ${nama}
     UID: ${uid}
+    Server: ${server}
+    Login : ${login}
     Paket: ${paket}
     Catatan: ${catatan}`;
 
