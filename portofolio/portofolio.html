@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio | Jovallin Keisha Rafael Dewantara</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #e2e8f0;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #38bdf8;
+      box-shadow: 0 0 30px rgba(56,189,248,0.4);
+      margin-bottom: 25px;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    .hero span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin-top: 15px;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    .btn {
+      margin-top: 25px;
+      padding: 12px 28px;
+      background: #38bdf8;
+      color: #0f172a;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(56,189,248,0.4);
+    }
+
+    /* SECTION */
+    section {
+      padding: 25px 8%;
+    }
+
+    section h3 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #38bdf8;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 15px;
+      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(56,189,248,0.2);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    ul {
+      line-height: 1.8;
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #0f172a;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 28px; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h1>Portofolio</h1>
+  <ul>
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Project</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="asset/pict/photo.jpg" alt="Profil">
+  <h2>Halo, Saya <span>Jovallin Keisha Rafael Dewantara</span></h2>
+  <p>Mahasiswa PPKN yang memiliki minat kuat di bidang Web Development dan UI/UX Design. Fokus menciptakan produk digital yang modern, cepat, dan responsif.</p>
+  <a href="#projects" class="btn">Lihat Project</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h3>Tentang Saya</h3>
+  <div class="card">
+    <p>Saya mahasiswa Universitas Negeri Surabaya jurusan Pendidikan Pancasila dan Kewarganegaraan (PPKN). Memiliki minat besar dalam pengembangan website, desain UI/UX, dan modifikasi sistem. Saya senang mempelajari teknologi baru dan membangun produk digital yang fungsional serta estetik.</p>
+  </div>
+</section>
+
+<!-- RIWAYAT PENDIDIKAN -->
+<section id="education">
+  <h3>Riwayat Pendidikan</h3>
+  <div class="card">
+    <ul>
+      <p>• Paud Wijaya Kusuma</p>
+      <p>• TK Yayasan Wanita Kereta Api</p>
+      <p>• Sekolah Dasar Negeri Klegen 1 Madiun</p>
+      <p>• Sekolah Dasar Negeri Kauman 1 Jombang</p>
+      <p>• Sekolah Menengah Pertama Negeri 1 Ngoro Jombang</p>
+      <p>• Sekolah Menengah Atas Negeri Ngoro Jombang</p>
+      <p>• Universitas Negeri Surabaya</p>
+    </ul>
+  </div>
+</section>
+
+<!-- RIWAYAT KEAKTIFAN -->
+<section id="activity">
+  <h3>Riwayat Keaktifan</h3>
+  <div class="card">
+    <p>Silakan isi pengalaman organisasi, kepanitiaan, komunitas, atau kegiatan lainnya di sini.</p>
+    <br>
+    <a href="krp.html" target="blank" class="btn">Lihat Detail Keaktifan</a>
+  </div>
+</section>
+
+<!-- RIWAYAT PENDIDIKAN -->
+<section id="work-experience">
+  <h3>Riwayat Pekerjaan</h3>
+  <div class="card">
+    <ul>
+      <li>............................</li>
+      <li>............................</li>
+      <li>............................</li>
+      <li>............................</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+  <h3>Keterampilan</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>Hard Skills</h4>
+      <ul>
+        <li>HTML, Phyton, JavaScript (Basic)</li>
+        <li>Git & GitHub</li>
+        <li>WebUI Magisk</li>
+        <li>Reverse Engineering (Basic)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Soft Skills</h4>
+      <ul>
+        <li>Problem Solving</li>
+        <li>Manajemen Waktu</li>
+        <li>Kerja Tim</li>
+        <li>Komunikasi</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="projects">
+  <h3>Project</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>Realme C21Y Debloat Tools</h4>
+      <p>• Tools debloat sederhana untuk menghapus aplikasi bawaan (bloatware) pada perangkat Realme C21Y.</p>
+    </div>
+    <div class="card">
+      <h4>Universal Buildprop Tweak</h4>
+      <p>• Modul atau skrip yang dirancang untuk mengoptimalkan kinerja sistem Android, masa pakai baterai, dan responsivitas dengan memodifikasi file build.prop.</p>
+    </div>
+    <div class="card">
+      <h4>Web Modding Project</h4>
+      <p>Pengembangan dan kustomisasi WebUI berbasis Magisk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h3>Kontak</h3>
+  <div class="card">
+    <p>Email: jovallin.krd@gmail.com</p>
+    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+    <p>Website: yourwebsite.com</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Jovallin Keisha Rafael Dewantara. All Rights Reserved.
+</footer>
+
+<script>
+  history.scrollRestoration = "manual";
+
+  document.documentElement.style.scrollBehavior = "auto";
+  window.scrollTo(0, 0);
+
+  setTimeout(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+  }, 50);
+</script>
+
+
+</body>
+</html>

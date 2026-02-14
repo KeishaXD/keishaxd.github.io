@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kartu Rencana Prestasi</title>
+<link rel="icon" type="image/png" 
+      href="asset/pict/favicon_krp.png">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
+}
+
+.header {
+    background: #0b3d91;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left h2 {
+    margin: 0;
+}
+
+.header-left div {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* BUTTON MODERN */
+.header-btn {
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    background: #1abc9c;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: all 0.25s ease;
+}
+
+.header-btn:hover {
+    background: #149174;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.header-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 25px auto;
+}
+
+.section-title {
+    background: #16a085;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px 4px 0 0;
+    font-weight: bold;
+}
+
+.section-header {
+    background: #16a085;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    margin-top: 25px;
+    border-radius: 4px 4px 0 0;
+}
+
+.sub-header {
+    background: #ecf0f1;
+    padding: 8px 15px;
+    font-weight: bold;
+    border-left: 4px solid #16a085;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.sub-section {
+    border-left: 4px solid #16a085;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    background: #ffffff;
+    border-radius: 4px;
+}
+
+ul {
+    margin: 8px 0 0 18px;
+    font-size: 14px;
+}
+
+.table-wrapper {
+    background: white;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+th {
+    background: #1abc9c;
+    color: white;
+}
+
+.number-col {
+    width: 50px;
+    text-align: center;
+}
+
+.btn {
+    padding: 5px 8px;
+    font-size: 12px;
+    border: none;
+    border-radius: 4px;
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    
+    <div class="header-left">
+        <h2>Dashboard</h2>
+        <div>Kartu Rencana Prestasi (KRP)</div>
+    </div>
+
+    <button class="header-btn" onclick="window.location.href='index.html'">
+        ⬅ Kembali ke Portofolio
+    </button>
+
+</div>
+
+
+<div class="container">
+
+    <!-- ================= DATA MAHASISWA ================= -->
+    <div class="card">
+        <h3>Data Mahasiswa</h3>
+        <div class="profile" style="display:flex; gap:20px; align-items:flex-start;">
+        <img src="asset/pict/photo_krp.jpg" 
+            style="width:120px; height:auto; border-radius:6px;">
+            <div class="info" style="font-size:14px; line-height:1.6;">
+                <strong>Nama:</strong> Jovallin Keisha Rafael Dewantara <br>
+                <strong>Tempat Tanggal Lahir :</strong> Madiun - 17 April 2006 <br>
+                <strong>NIM:</strong> 25040254153 <br>
+                <strong>Program Studi:</strong> Pendidikan Pancasila dan Kewarganegaraan <br>
+                <strong>Fakultas:</strong> Ilmu Sosial dan Politik <br>
+                <strong>Universitas:</strong> Universitas Negeri Surabaya <br>
+                <strong>Semester:</strong> 2
+            </div>
+        </div>
+    </div>
+
+<!-- ================= JENIS KEGIATAN ================= -->
+<div class="section-title">Jenis Kegiatan</div>
+<div class="card">
+
+<div class="sub-section">
+<strong>Kegiatan Wajib Universitas</strong>
+<ul>
+<li>PKKMB</li>
+<li>Orientasi Perpustakaan Pusat</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<strong>Pilihan</strong>
+<ul>
+
+<li><b>Kegiatan Bidang Kepedulian Sosial</b>
+<ul>
+<li>Bantuan Pembimbing Rutin (LBB, BIMBASI, PENGAJIAN, TPA, PAUD)</li>
+<li>Kegiatan lain individual sosial</li>
+<li>Mengikuti pelaksanaan bakti sosial</li>
+<li>Penanganan bencana</li>
+</ul>
+</li>
+
+<li><b>Kegiatan Bidang Minat dan Bakat</b>
+<ul>
+<li>Melaksanakan Aktifitas Rutin Berkaitan dengan Kegiatan Minat dan Bakat yang diselenggarakan UKM</li>
+<li>Melaksanakan latihan gabungan</li>
+<li>Memperoleh Prestasi dalam Kegiatan Minat dan Bakat (Olahraga, Seni dan Kerohanian)</li>
+<li>Mengelola kewirausahaan</li>
+<li>Menghasilkan Karya Seni (konser, pameran seni, puisi, fotografi, teater, dll)</li>
+<li>Mengikuti Kegiatan Minat dan Bakat (Olahraga, Seni dan Kerohanian)</li>
+<li>Menjadi Mitra Tanding pada Kegiatan Minat dan Bakat</li>
+<li>Menjadi Pelatih/ Pembimbing Kegiatan Minat dan Bakat</li>
+</ul>
+</li>
+
+<li><b>Kegiatan Bidang Organisasi dan Kepemimpinan</b>
+<ul>
+<li>Anggota aktif organisasi</li>
+<li>Berpartisipasi dalam pemira / musyawarah anggota</li>
+<li>Latihan keterampilan lain</li>
+<li>Mencalonkan Diri sebagai Calon Ketua/ Anggota Organisasi Mahasiswa</li>
+<li>Mengikuti Pelatihan Kepemimpinan LKMM</li>
+<li>Panitia dalam Suatu Kegiatan Kemahasiswaan</li>
+<li>Pengurus organisasi</li>
+</ul>
+</li>
+
+<li><b>Kegiatan Bidang Penalaran dan Keilmuan</b>
+<ul>
+<li>Mawapres</li>
+<li>Memberikan Pelatihan/ Bimbingan dalam Penyusunan Karya Tulis</li>
+<li>Memperoleh prestasi dalam Lomba Karya Tulis Ilmiah/ Lingkungan Hidup/ Kreatifvitas/Inovatif/Pemikiran Kritis/Populer/Enterpreneurship/Bussiness Plan/Olimpiade/Robotika</li>
+<li>Menghasilkan karya ilmiah dipublikasikan</li>
+<li>Menghasilkan Karya Popular yang diterbitkan di Surat Kabar/ Majalah/ Media lainnya</li>
+<li>Menghasilkan Karya yang Tidak dipublikasikan</li>
+<li>Menghasilkan Temuan Inovasi yang Dipatenkan</li>
+<li>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</li>
+<li>Mengikuti Kegiatan Lomba Lain</li>
+<li>Mengikuti Kuliah Tamu</li>
+<li>Mengikuti Program Kreativitas Mahasiswa (PKM)/ Program Mahasiswa Wirausaha (PMW)</li>
+<li>Terlibat dalam Penelitian Dosen/ Pihak Lain</li>
+</ul>
+</li>
+
+<li><b>Kegiatan Lainnya</b></li>
+<ul>
+<li>Berpartisipasi dalam Kegiatan Alumni</li>
+<li>Kursus Keterampilan Berbahasa Asing</li>
+<li>Melakukan Kunjungan / Studi Banding</li>
+<li>Peserta Upacara Bendera</li>
+<li>Petugas Upacara Bendera</li>
+</ul>
+</div>
+
+</div>
+
+
+<!-- ================= WAJIB UNIVERSITAS ================= -->
+<div class="section-header">WAJIB UNIVERSITAS</div>
+
+<div class="table-wrapper">
+
+    <div class="sub-header">PKKMB</div>
+    <table>
+        <tr>
+            <th class="number-col">No</th>
+            <th>Nama Kegiatan</th>
+            <th>Deskripsi Kegiatan</th>
+            <th>Tahun</th>
+            <th>Semester</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td class="number-col">1</td>
+            <td>PKKMB 2025</td>
+            <td>Tingkat Universitas sebagai Peserta
+Judul kegiatan "Langkah Awal Meraih Cita: Bersama Pendidikan Membangun Masa Depan" dilaksanakan pada 19 Agustus 2025 oleh Fakultas Ilmu Sosial dan Ilmu Politik Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">2</td>
+            <td>PKKMB 2025</td>
+            <td>Tingkat Universitas sebagai Peserta
+Judul kegiatan "Glory Education: Pelopor Kampus, Pilar Kemajuan Bangsa" dilaksanakan pada 19 Agustus 2025 oleh Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">3</td>
+            <td>PKKMB 2025</td>
+            <td>Tingkat Universitas sebagai Peserta
+Judul kegiatan "Menggali Potensi Menguatkan Solidaritas: Civics Euphoria sebagai Panggung Kreasi Mahasiswa" dilaksanakan pada 11 Oktober 2025 oleh HMP Pendidikan Pancasila dan Kewarganegaraan Fakultas Ilmu Sosial dan Ilmu Politik</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+    </table>
+
+    <div class="sub-header">Orientasi Perpustakaan Pusat</div>
+    <table>
+        <tr>
+            <th class="number-col">No</th>
+            <th>Nama Kegiatan</th>
+            <th>Deskripsi Kegiatan</th>
+            <th>Tahun</th>
+            <th>Semester</th>
+            <th>Aksi</th>
+        </tr>
+    </table>
+
+</div>
+
+
+<!-- ================= PILIHAN ================= -->
+<div class="section-header">PILIHAN</div>
+
+<div class="table-wrapper">
+
+    <!-- Kepedulian Sosial -->
+    <div class="sub-header">Kegiatan Bidang Kepedulian Sosial</div>
+    <table>
+        <tr>
+            <th class="number-col">No</th>
+            <th>Nama Kegiatan</th>
+            <th>Deskripsi Kegiatan</th>
+            <th>Tahun</th>
+            <th>Semester</th>
+            <th>Aksi</th>
+        </tr>
+    </table>
+
+    <!-- Minat dan Bakat -->
+    <div class="sub-header">Kegiatan Bidang Minat dan Bakat</div>
+    <table>
+        <tr>
+            <th class="number-col">No</th>
+            <th>Nama Kegiatan</th>
+            <th>Deskripsi Kegiatan</th>
+            <th>Tahun</th>
+            <th>Semester</th>
+            <th>Aksi</th>
+        </tr>
+    </table>
+
+    <!-- Organisasi dan Kepemimpinan -->
+    <div class="sub-header">Kegiatan Bidang Organisasi dan Kepemimpinan</div>
+    <table>
+        <tr>
+            <th class="number-col">No</th>
+            <th>Nama Kegiatan</th>
+            <th>Deskripsi Kegiatan</th>
+            <th>Tahun</th>
+            <th>Semester</th>
+            <th>Aksi</th>
+        </tr>
+            <tr>
+            <td class="number-col">1</td>
+            <td>Mengikuti Pelatihan Kepemimpinan LKMM</td>
+            <td>Tingkat Pratingkat Dasar Judul kegiatan "Menumbuhkan sikap "GENIUS (Gigih, Empati, Nasionalis, Inspiratif, Unggul, Suportif) guna membentuk Karakter Pemimpin pada Generasi muda dalam menyongsong Indonesia Emas 2045" dilaksanakan pada 12 September 2025 oleh HMP Pendidikan Pancasila dan Kewarganegaraan Fakultas Ilmu Sosial dan Ilmu Politik</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+    </table>
+
+    <!-- Penalaran dan Keilmuan -->
+    <div class="sub-header">Kegiatan Bidang Penalaran dan Keilmuan</div>
+    <table>
+        <tr>
+            <th class="number-col">No</th>
+            <th>Nama Kegiatan</th>
+            <th>Deskripsi Kegiatan</th>
+            <th>Tahun</th>
+            <th>Semester</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td class="number-col">1</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Departemen/ Program Studi sebagai Peserta
+Judul kegiatan "Boost Up Your Public Speaking Skills" dilaksanakan pada 10 September 2025 oleh Program Studi S1 Pendidikan Pancasila dan Kewarganegaraan Fakultas Ilmu Sosial dan ilmu Politik, Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">2</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Fakultas sebagai Peserta
+Judul kegiatan "Sejarah Identitas, dan Nasionalisme: Dialog Global Indonesia-Saudi-India" dilaksanakan pada 15 September 2025 oleh Program Studi S1 Pendidikan Sejarah Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">3</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Departemen/ Program Studi sebagai Peserta
+Judul kegiatan "Dialog Politik: Pentingnya Pendidikan Politik dari Kacamata Pengawas Pemilu dalam Memperkuat Jiwa Nasionalisme" dilaksanakan pada 22 September 2025 oleh HMP Pendidikan Pancasila dan Kewarganegaraan Fakultas Ilmu Sosial dan Ilmu Politik</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">4</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Fakultas sebagai Peserta
+Judul kegiatan "Merajut Nasionalisme dan Solidaritas Sosial Ditengah Dinamika Global" dilaksanakan pada 12 Oktober 2025 oleh Badan Eksekutif Mahasiswa Fakultas Ilmu Sosial dan Ilmu Politik Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">5</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Judul kegiatan "Satu Ide Beribu Dampak: Menumbuhkan Jiwa Inovatif dan Kreatif Mahasiswa melalui PKM Multidispliner" dilaksanakan pada 03 November 2025 oleh Program Studi S1 Pendidikan Pancasila dan Kewarganegaraan Fakultas Ilmu Sosial dan ilmu Politik, Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">6</td>
+            <td>Mengikuti Kuliah Tamu</td>
+            <td>Judul kegiatan "Satu Ide Beribu Dampak: Menumbuhkan Jiwa Inovatif dan Kreatif Mahasiswa melalui PKM Multidispliner" dilaksanakan pada 03 November 2025 oleh Program Studi S1 Pendidikan Pancasila dan Kewarganegaraan Fakultas Ilmu Sosial dan ilmu Politik, Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">7</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan "Ai For Content Creator And How To Make Money With AI" dilaksanakan pada 07 November 2025 oleh Ai For Everyone</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">8</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Universitas sebagai Peserta
+Judul kegiatan "Membangun Gaya Hidup Minim Sampah Melalui Edukasi, Aksi, dan Inovasi Zero Waste" dilaksanakan pada 30 November 2025 oleh Volunteer Dedikasi Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">9</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan "Hidden Privilege Jadi Anak IT" dilaksanakan pada 12 Desember 2025 oleh @codingstudio.id x @bahaskoding</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">10</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan "Desain Presentasi Praktis Buat Mahasiswa Kreatif" dilaksanakan pada 12 Desember 2025 oleh CreativArt Lab X Canva Indonesia</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">11</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan "Ai For Gen Z Problem Solving" dilaksanakan pada 19 Desember 2025 oleh Ai For Everyone</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">12</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan "Fundamental Public Speaking Training" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">13</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan "Futurepreneur National Competition" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">14</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Internasional sebagai Peserta
+Judul kegiatan "International Youth Innovation Summit Selection Program 2025" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">15</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan "Improvement Softskill Webinar" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">16</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan Future Enterpreneur Indonesia Summit dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">17</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan "Webinar Strategis For Writing High-Quality Essay" dilaksanakan pada 22 Desember 2025 oleh International Youth Goals</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">18</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan Understanding the Hydrology, Geology, Ecology, and River Morphology Behind Flush Flood dilaksanakan pada 22 Desember 2025 oleh Green Skill ID</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">19</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan AI For Student: AI Playbook untuk Menjadi Mahasiswa Berprestasi dilaksanakan pada 26 Januari 2026 oleh Ai For Everyone</td>
+            <td>2026</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">20</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan AI For Self Space: Memastikan Diri Tetap Berkembang di Era AI dilaksanakan pada 28 Januari 2026 oleh Ai For Everyone</td>
+            <td>2026</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">21</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan AI For Job Seeker : Tips Remote Work Kerja Dari Mana Saja dilaksanakan pada 30 Januari 2026 oleh AI For Everyone</td>
+            <td>2026</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">22</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan AI For Freelancer : Workflow Freelancer Bebasis AI dilaksanakan pada 01 Februari 2026 oleh Ai For Everyone</td>
+            <td>2026</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">23</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan Ai For Automation : n8n Untuk yang Lebih Terstruktur dilaksanakan pada 03 Februari 2026 oleh Ai For Everyone</td>
+            <td>2026</td>
+            <td>2</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">24</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan Ai For Everyone : Roadmap 100 Juta Pertama dari Ai dilaksanakan pada 07 Februari 2026 oleh Ai For Everyone</td>
+            <td>2026</td>
+            <td>2</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+        <tr>
+            <td class="number-col">25</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Nasional sebagai Peserta
+Judul kegiatan AI For Content Creator : Konsisten Upload Tanpa Burnout dilaksanakan pada 05 Februari 2026 oleh AI For Everyone</td>
+            <td>2026</td>
+            <td>2</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+    </table>
+
+    <!-- Kegiatan Lainnya -->
+    <div class="sub-header">Kegiatan Lainnya</div>
+    <table>
+        <tr>
+            <th class="number-col">No</th>
+            <th>Nama Kegiatan</th>
+            <th>Deskripsi Kegiatan</th>
+            <th>Tahun</th>
+            <th>Semester</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td class="number-col">1</td>
+            <td>Kursus Keterampilan Berbahasa Asing</td>
+            <td>Judul kegiatan "Kegiatan Kursus Bahasa Inggris Fakultas Ilmu Sosial dan Ilmu Politik Tahun 2025" dilaksanakan pada 04 Oktober 2025 oleh Fakultas Ilmu Sosial dan Ilmu Politik Universitas Negeri Surabaya</td>
+            <td>2025</td>
+            <td>1</td>
+            <td><button class="btn">Detail</button></td>
+        </tr>
+    </table>
+
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer style="background:#0b3d91; color:white; text-align:center; padding:15px 10px; margin-top:40px; font-size:13px;">
+    © 2026 Jovallin Keisha Rafael Dewantara | Dibuat untuk Portofolio Pribadi<br>
+    Inspirasi tampilan dari sistem akademik kampus Universitas Negeri Surabaya (SIPENA)
+</footer>
+
+</body>
+</html>
