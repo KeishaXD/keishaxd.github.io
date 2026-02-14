@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keisha Store - Layanan Jasa Joki</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:white;
+}
+
+header{
+  background:#111827;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:700;
+  color:#22d3ee;
+}
+
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#22d3ee;
+}
+
+section{
+  padding:60px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+h2{
+  margin-bottom:25px;
+  color:#22d3ee;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.hero h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#9ca3af;
+}
+
+/* SLIDER JOKI */
+.slider{
+  display:flex;
+  overflow-x:auto;
+  gap:20px;
+  scroll-behavior:smooth;
+}
+
+.slider::-webkit-scrollbar{
+  height:6px;
+}
+
+.slider::-webkit-scrollbar-thumb{
+  background:#22d3ee;
+  border-radius:10px;
+}
+
+.card{
+  min-width:250px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+  transition:0.3s;
+  flex-shrink:0;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  background:#334155;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.price{
+  margin:10px 0;
+  font-weight:bold;
+  color:#10b981;
+}
+
+.btn{
+  display:inline-block;
+  padding:8px 14px;
+  background:#22d3ee;
+  color:black;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:600;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.btn:hover{
+  background:#06b6d4;
+}
+
+/* TOP UP GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* JOKI CUSTOM */
+.order{
+  margin-top:50px;
+  text-align:center;
+}
+
+.order input{
+  padding:10px;
+  margin:10px;
+  border-radius:6px;
+  border:none;
+  width:250px;
+}
+
+.order input:focus{
+  outline:2px solid #22d3ee;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#111827;
+  margin-top:40px;
+  color:#9ca3af;
+}
+
+@media(max-width:768px){
+  .hero h1{
+    font-size:28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎮 Keisha Store</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#joki">Joki</a>
+    <a href="#topup">Top Up</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Store Layanan Jasa Joki</h1>
+  <p>Cepat - Aman - Harga Bersahabat</p>
+</section>
+
+<!-- ================= TOP UP SECTION ================= -->
+<section id="popular">
+  <h2>🔥 Best Seller</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Joki Genshin Impact</h3>
+      <div class="price">Mulai Rp 3.000</div>
+      <a class="btn" onclick="orderWA('Top Up Diamond ML')">Joki Sekarang</a>
+    </div>
+
+    <div class="card">
+      <h3>Joki Wuthering Wave</h3>
+      <div class="price">Mulai Rp 3.000</div>
+      <a class="btn" onclick="orderWA('Top Up Valorant Points')">Joki Sekarang</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= TOP UP SECTION ================= -->
+<section id="joki">
+  <h2>🎮 Layanan Joki</h2>
+
+  <div class="grid">
+  
+      <div class="card">
+      <h3>Joki Genshin Impact</h3>
+      <div class="price">Mulai Rp 3.000</div>
+      <a class="btn" onclick="orderWA('Top Up Diamond ML')">Joki Sekarang</a>
+    </div>
+
+    <div class="card">
+      <h3>Joki Wuthering Wave</h3>
+      <div class="price">Mulai Rp 3.000</div>
+      <a class="btn" onclick="orderWA('Top Up Valorant Points')">Joki Sekarang</a>
+    </div>
+
+    <div class="card">
+      <h3>Joki Honkai Star Rail</h3>
+      <div class="price">Mulai Rp 3.000</div>
+      <a class="btn" onclick="orderWA('Top Up Valorant Points')">Joki Sekarang</a>
+    </div>
+
+    <div class="card">
+      <h3>Joki Mobile Legend</h3>
+      <div class="price">Mulai Rp 10.000</div>
+      <a class="btn" onclick="orderWA('Top Up Diamond ML')">Joki Sekarang</a>
+    </div>
+
+    <div class="card">
+      <h3>Joki Free Fire</h3>
+      <div class="price">Mulai Rp 10.000</div>
+      <a class="btn" onclick="orderWA('Top Up Valorant Points')">Joki Sekarang</a>
+    </div>
+
+    <div class="card">
+      <h3>Joki PUBGM</h3>
+      <div class="price">Mulai Rp 10.000</div>
+      <a class="btn" onclick="orderWA('Top Up UC PUBG')">Joki Sekarang</a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ===== JOKI CUSTOM ===== -->
+  <div class="order">
+    <h2> Cari Joki Lain ? <br> Coba Joki Custom</h2>
+    <input type="text" id="nama" placeholder="Nama">
+    <input type="text" id="game" placeholder="Game">
+    <input type="text" id="paket" placeholder="Detail Request">
+    <br>
+    <button class="btn" onclick="kirimWA()">Order via WhatsApp</button>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Keisha Store
+</footer>
+
+<script>
+function orderWA(product){
+  var nomor = "628xxxxxxxxxx"; // GANTI NOMOR
+  var pesan = "Halo, saya ingin order: " + product;
+  var url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+  window.open(url, "_blank");
+}
+
+function kirimWA(){
+  var nama = document.getElementById("nama").value;
+  var game = document.getElementById("game").value;
+  var paket = document.getElementById("paket").value;
+
+  var nomor = "6285852702386"; // GANTI NOMOR
+  var pesan = "Halo Admin, saya ingin Joki Custom:%0A%0A"
+            + "Nama: " + nama + "%0A"
+            + "Game: " + game + "%0A"
+            + "Detail: " + paket;
+
+  var url = "https://wa.me/" + nomor + "?text=" + pesan;
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
