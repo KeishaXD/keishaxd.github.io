@@ -18,6 +18,7 @@
 body {
   background: #0f172a;
   color: #ffffff;
+  padding-top: 90px;
 }
 
 /* ================= HEADER ================= */
@@ -28,7 +29,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .logo {
@@ -54,20 +59,37 @@ header {
   color: #22d3ee;
 }
 
-/* HAMBURGER */
+/* HAMBURGER BASE */
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 6px;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
   cursor: pointer;
+  position: relative;
   z-index: 1001;
 }
 
 .hamburger span {
-  width: 25px;
   height: 3px;
+  width: 100%;
   background: white;
-  transition: 0.3s ease;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* ANIMASI X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* ================= MOBILE ================= */
@@ -76,15 +98,16 @@ header {
   .menu {
     position: fixed;
     top: 0;
-    right: -250px;
-    width: 220px;
+    right: -100%;
+    width: 250px;
     height: 100vh;
     background: #1e293b;
     flex-direction: column;
-    padding-top: 80px;
-    gap: 25px;
+    padding-top: 100px;
+    gap: 30px;
     align-items: center;
     transition: right 0.3s ease;
+    z-index: 999;
   }
 
   .menu.active {
@@ -94,20 +117,26 @@ header {
   .hamburger {
     display: flex;
   }
-
-  /* ANIMASI X */
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
 }
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 998;
+}
+
+.overlay.active {
+  display: block;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ================= SECTION ================= */
 
 section {
   padding: 60px 20px;
@@ -135,53 +164,10 @@ h2 {
   color: #9ca3af;
 }
 
-/* CARD */
-.card {
-  min-width: 250px;
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  background: #334155;
-}
-
-.card h3 {
-  margin-bottom: 10px;
-}
-
-.card-img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-  margin-bottom: 10px;
-}
-
-
-.price {
-  margin: 10px 0;
-  font-weight: bold;
-  color: #10b981;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 14px;
-  background: #22d3ee;
-  color: #000000;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: #06b6d4;
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 28px;
+  }
 }
 
 /* GRID */
@@ -197,8 +183,50 @@ h2 {
   }
 }
 
+/* CARD */
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
 
-/* JOKI CUSTOM */
+.card:hover {
+  transform: translateY(-5px);
+  background: #334155;
+}
+
+.card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.price {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #10b981;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #22d3ee;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #06b6d4;
+}
+
+/* CUSTOM ORDER */
 .order {
   margin-top: 50px;
   text-align: center;
@@ -225,14 +253,8 @@ footer {
   color: #9ca3af;
 }
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 28px;
-  }
-}
 </style>
 </head>
-
 
 <body>
 
@@ -244,14 +266,14 @@ footer {
     <a href="#custom">Custom</a>
   </nav>
 
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
     <span></span>
   </div>
+
+  <div class="overlay" id="overlay"></div>
 </header>
-
-
 
 <section class="hero">
   <h1>Keisha Store – Jasa Joki Game</h1>
@@ -352,34 +374,38 @@ footer {
 </footer>
 
 <script>
-function orderWA(product){
-  var nomor = "628xxxxxxxxxx"; // GANTI NOMOR
-  var pesan = "Halo, saya ingin order: " + product;
-  var url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
-  window.open(url, "_blank");
-}
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const overlay = document.getElementById("overlay");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  menu.classList.toggle("active");
+  overlay.classList.toggle("active");
+  document.body.classList.toggle("menu-open");
+});
+
+overlay.addEventListener("click", () => {
+  hamburger.classList.remove("active");
+  menu.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("menu-open");
+});
 
 function kirimWA(){
   var nama = document.getElementById("nama").value;
   var game = document.getElementById("game").value;
   var paket = document.getElementById("paket").value;
 
-  var nomor = "6285852702386"; // GANTI NOMOR
-  var pesan = "Halo Admin, saya ingin Joki Custom:%0A%0A"
-            + "Nama: " + nama + "%0A"
-            + "Game: " + game + "%0A"
-            + "Detail: " + paket;
+  var nomor = "6285852702386";
+  var pesan = `Halo Admin, saya ingin Joki Custom:
 
-  var url = "https://wa.me/" + nomor + "?text=" + pesan;
+Nama: ${nama}
+Game: ${game}
+Detail: ${paket}`;
+
+  var url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
   window.open(url, "_blank");
-}
-
-function toggleMenu() {
-  const menu = document.getElementById("menu");
-  const hamburger = document.getElementById("hamburger");
-
-  menu.classList.toggle("active");
-  hamburger.classList.toggle("active");
 }
 </script>
 
