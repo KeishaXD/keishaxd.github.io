@@ -20,12 +20,15 @@ body {
   color: #ffffff;
 }
 
+/* ================= HEADER ================= */
+
 header {
   background: #111827;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
@@ -34,16 +37,76 @@ header {
   color: #22d3ee;
 }
 
-nav a {
-  margin-left: 20px;
+/* MENU DESKTOP */
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
   font-weight: 500;
   transition: 0.3s;
 }
 
-nav a:hover {
+.menu a:hover {
   color: #22d3ee;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s ease;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 220px;
+    height: 100vh;
+    background: #1e293b;
+    flex-direction: column;
+    padding-top: 80px;
+    gap: 25px;
+    align-items: center;
+    transition: right 0.3s ease;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* ANIMASI X */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
 }
 
 section {
@@ -175,12 +238,20 @@ footer {
 
 <header>
   <div class="logo">🎮 Keisha Store</div>
-  <nav>
-    <a href="#">Home</a>
+
+  <nav class="menu" id="menu">
     <a href="#joki">Joki</a>
     <a href="#custom">Custom</a>
   </nav>
+
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>
+
+
 
 <section class="hero">
   <h1>Keisha Store – Jasa Joki Game</h1>
@@ -301,6 +372,14 @@ function kirimWA(){
 
   var url = "https://wa.me/" + nomor + "?text=" + pesan;
   window.open(url, "_blank");
+}
+
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  const hamburger = document.getElementById("hamburger");
+
+  menu.classList.toggle("active");
+  hamburger.classList.toggle("active");
 }
 </script>
 
