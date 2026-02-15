@@ -331,14 +331,14 @@ footer {
       <option value="mingguan">Joki Mingguan (Rp 15.000 / minggu)</option>
       <option value="bulanan">Joki Bulanan (Rp 50.000 / bulan)</option>
       <option value="quest|10000">Joki Main Quest - Rp 10.000</option>
-      <option value="event|10000">Joki Event Kecil - Rp 10.000</option>
-      <option value="event|15000">Joki Event Medium - Rp 15.000</option>
-      <option value="event|30000">Joki Event Besar - Rp 30.000</option>
-      <option value="event|10000">Stellar Reunion - Rp 10.000</option>
-      <option value="event|5000">Farm Artifact - Rp 5.000</option>
-      <option value="event|5000">Boss Fight - Rp 5.000</option>
-      <option value="event|5000">Domain - Rp 5.000</option>
-      <option value="event|10000">Open Map - Rp 10.000</option>
+      <option value="event-kecil|10000">Joki Event Kecil - Rp 10.000</option>
+      <option value="event-medium|15000">Joki Event Medium - Rp 15.000</option>
+      <option value="event-besar|30000">Joki Event Besar - Rp 30.000</option>
+      <option value="stellar|10000">Stellar Reunion - Rp 10.000</option>
+      <option value="artifact|5000">Farm Artifact - Rp 5.000</option>
+      <option value="boss|5000">Boss Fight - Rp 5.000</option>
+      <option value="domain|5000">Domain - Rp 5.000</option>
+      <option value="openmap|10000">Open Map - Rp 10.000</option>
     </select>
 
     <div id="durasiBox" style="display:none; margin-bottom:15px;">
@@ -559,7 +559,7 @@ Total: Rp ${total.toLocaleString("id-ID")}`;
     window.open(url, "_blank");
 
     // CLEAR STORAGE setelah order
-    localStorage.clear();
+    fields.forEach(field => localStorage.removeItem(field.id));
   });
 
 });
