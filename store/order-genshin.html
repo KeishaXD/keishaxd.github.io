@@ -80,17 +80,6 @@ nav a:hover {
 }
 
 
-.game-info h1 {
-  color: #22d3ee;
-  margin-bottom: 10px;
-}
-
-.game-info p {
-  color: #9ca3af;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
 /* ===== CONTENT ===== */
 section {
   padding: 20px;
@@ -274,7 +263,7 @@ footer {
 <header>
   <div class="logo">🎮 Keisha Store</div>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="store.html">Home</a>
   </nav>
 </header>
 
@@ -292,22 +281,26 @@ footer {
 <section>
 
   <!-- ===== NOTES ===== -->
-  <div class="notes">
-    <h3>⚠ Ketentuan Order</h3>
-    <ul>
-      <li>Pastikan UID yang dimasukkan benar.</li>
-      <li>Gunakan password sementara saat joki berlangsung.</li>
-      <li>Dilarang login selama proses joki berjalan.</li>
-      <li>Estimasi pengerjaan 1–24 jam tergantung paket.</li>
-      <li>Dengan memesan berarti setuju dengan ketentuan kami.</li>
-      <li>Opsi login hanya tersedia untuk Hoyoverse, Google, dan Facebook.</li>
-    </ul>
-  </div>
+<div class="notes">
+  <h3>⚠ Ketentuan Layanan Joki</h3>
+  <ul>
+    <li><strong>Joki Harian / Mingguan / Bulanan</strong> mencakup Daily Commission dan claim reward. Tidak termasuk Spiral Abyss  dan resin spending standar.</li>
+    <li><strong>Joki Main Quest</strong> berlaku untuk 1 rangkaian quest (Archon / Story Quest). Quest panjang atau multi-chapter bisa dikenakan tambahan biaya.</li>
+    <li><strong>Joki Event</strong> menyesuaikan tingkat kesulitan dan progress akun. Event besar dengan banyak stage akan dihitung sesuai paket.</li>
+    <li><strong>Stellar Reunion</strong> berlaku untuk penyelesaian misi reunion standar (tanpa tambahan Spiral Abyss).</li>
+    <li><strong>Farm Artifact / Domain / Boss Fight</strong> menggunakan resin yang tersedia di akun. Jika resin habis, proses dihentikan atau menunggu refill.</li>
+    <li><strong>Open Map</strong> mencakup pembukaan waypoint, statue, dan domain dasar. Tidak termasuk puzzle kompleks, quest tersembunyi, dan waypoint tersembunyi.</li>
+    <li>Customer wajib logout selama proses joki berlangsung untuk menghindari konflik login.</li>
+    <li>Gunakan password sementara demi keamanan akun.</li>
+    <li>Durasi pengerjaan menyesuaikan antrian dan tingkat kesulitan akun.</li>
+    <li>Dengan melakukan order, customer dianggap menyetujui seluruh ketentuan layanan.</li>
+  </ul>
+</div>
+
 
   <!-- ===== FORM ===== -->
     <div class="form-box">
       <input type="text" id="nama" placeholder="Nama Anda" required>
-      <input type="text" id="uid" placeholder="UID Genshin" required>
 
       <select id="server" required>
         <option value="">Pilih Server</option>
@@ -324,15 +317,32 @@ footer {
         <option>Facebook</option>
       </select>
 
-      <select id="paket" required>
-        <option value="">Pilih Joki</option>
-        <option>Daily Commission</option>
-        <option>Joki Quest</option>
-        <option>Joki Event</option>
-        <option>Farm Artifact</option>
-        <option>Boss Farming</option>
-        <option>Open Map</option>
-      </select>
+    <select id="paket" required>
+      <option value="">Pilih Joki</option>
+      <option value="harian">Joki Harian (Rp 3.000 / hari)</option>
+      <option value="mingguan">Joki Mingguan (Rp 15.000 / minggu)</option>
+      <option value="bulanan">Joki Bulanan (Rp 50.000 / bulan)</option>
+      <option value="quest|10000">Joki Main Quest - Rp 10.000</option>
+      <option value="event|10000">Joki Event Kecil - Rp 10.000</option>
+      <option value="event|15000">Joki Event Medium - Rp 15.000</option>
+      <option value="event|30000">Joki Event Besar - Rp 30.000</option>
+      <option value="event|10000">Stellar Reunion - Rp 10.000</option>
+      <option value="event|5000">Farm Artifact - Rp 5.000</option>
+      <option value="event|5000">Boss Fight - Rp 5.000</option>
+      <option value="event|5000">Domain - Rp 5.000</option>
+      <option value="event|10000">Open Map - Rp 10.000</option>
+    </select>
+
+    <div id="durasiBox" style="display:none; margin-bottom:15px;">
+      <input type="number" id="jumlahDurasi" min="1" placeholder="Masukkan jumlah">
+    </div>
+
+    <div style="margin-bottom:15px; color:#22d3ee; font-weight:600;">
+      Total Harga: <span id="hargaText">Rp 0</span>
+    </div>
+
+
+
 
       <textarea id="catatan" rows="4" placeholder="Catatan Tambahan (Opsional)"></textarea>
 
@@ -355,50 +365,200 @@ footer {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
+  const formBox = document.querySelector(".form-box");
+  const fields = formBox.querySelectorAll("input, select, textarea");
+
+  const paketSelect = document.getElementById("paket");
+  const durasiBox = document.getElementById("durasiBox");
+  const jumlahDurasi = document.getElementById("jumlahDurasi");
+  const hargaText = document.getElementById("hargaText");
   const checkbox = document.getElementById("agree");
   const button = document.getElementById("orderBtn");
 
-  // Pastikan tombol awalnya mati
-  button.disabled = true;
+  // ==============================
+  // AUTO MERGE SYSTEM
+  // ==============================
+  function hitungAutoMerge(totalHari) {
 
-  // Aktifkan tombol jika checkbox dicentang
+    let sisa = totalHari;
+
+    let bulan = Math.floor(sisa / 30);
+    sisa %= 30;
+
+    let minggu = Math.floor(sisa / 7);
+    sisa %= 7;
+
+    let total =
+      (bulan * 50000) +
+      (minggu * 15000) +
+      (sisa * 3000);
+
+    return { total, bulan, minggu, hari: sisa };
+  }
+
+  // ==============================
+  // HITUNG HARGA GLOBAL
+  // ==============================
+  function hitungHarga() {
+
+    let paket = paketSelect.value;
+    let jumlah = parseInt(jumlahDurasi.value) || 0;
+    let total = 0;
+
+    if(paket === "harian") {
+      total = hitungAutoMerge(jumlah).total;
+    }
+    else if(paket === "mingguan") {
+      total = hitungAutoMerge(jumlah * 7).total;
+    }
+    else if(paket === "bulanan") {
+      total = hitungAutoMerge(jumlah * 30).total;
+    }
+    else if(paket && paket.includes("|")) {
+      total = parseInt(paket.split("|")[1]);
+    }
+
+    hargaText.innerText = "Rp " + total.toLocaleString("id-ID");
+    return total;
+  }
+
+  // ==============================
+  // SAAT GANTI PAKET
+  // ==============================
+  paketSelect.addEventListener("change", function(){
+
+    let paket = this.value;
+
+    if(paket === "harian"){
+      durasiBox.style.display = "block";
+      jumlahDurasi.placeholder = "Masukkan jumlah hari";
+    }
+    else if(paket === "mingguan"){
+      durasiBox.style.display = "block";
+      jumlahDurasi.placeholder = "Masukkan jumlah minggu";
+    }
+    else if(paket === "bulanan"){
+      durasiBox.style.display = "block";
+      jumlahDurasi.placeholder = "Masukkan jumlah bulan";
+    }
+    else {
+      durasiBox.style.display = "none";
+      jumlahDurasi.value = "";
+    }
+
+    hitungHarga();
+  });
+
+  jumlahDurasi.addEventListener("input", hitungHarga);
+
+  // ==============================
+  // ENABLE BUTTON
+  // ==============================
+  button.disabled = !checkbox.checked;
   checkbox.addEventListener("change", function() {
     button.disabled = !this.checked;
   });
 
-  // Ketika tombol diklik
+  // ==============================
+  // AUTO SAVE
+  // ==============================
+  fields.forEach(field => {
+
+    // LOAD
+    const saved = localStorage.getItem(field.id);
+    if(saved !== null){
+      if(field.type === "checkbox"){
+        field.checked = saved === "true";
+      } else {
+        field.value = saved;
+      }
+    }
+
+    // SAVE
+    field.addEventListener("input", saveField);
+    field.addEventListener("change", saveField);
+
+    function saveField(){
+      if(field.type === "checkbox"){
+        localStorage.setItem(field.id, field.checked);
+      } else {
+        localStorage.setItem(field.id, field.value);
+      }
+    }
+  });
+
+  // Trigger ulang agar harga ikut terhitung setelah restore
+  paketSelect.dispatchEvent(new Event("change"));
+  hitungHarga();
+
+  // ==============================
+  // KIRIM WA
+  // ==============================
   button.addEventListener("click", function() {
 
-    var nama = document.getElementById("nama").value.trim();
-    var uid = document.getElementById("uid").value.trim();
-    var paket = document.getElementById("paket").value;
-    var catatan = document.getElementById("catatan").value.trim();
+    let nama = document.getElementById("nama").value.trim();
+    let server = document.getElementById("server").value;
+    let login = document.getElementById("login").value;
+    let paket = paketSelect.value;
+    let jumlah = parseInt(jumlahDurasi.value) || 0;
 
-    if(nama === "" || uid === "" || paket === ""){
-      alert("Mohon lengkapi semua data terlebih dahulu.");
+    if(nama === "" || server === "" || login === "" || paket === ""){
+      alert("Mohon lengkapi data terlebih dahulu.");
       return;
     }
 
-    var nomor = "6285852702386"; // GANTI NOMOR KAMU
+    let total = hitungHarga();
+    let detail = "";
 
-    var pesan = `Halo Admin Keisha Store,
+    if(paket === "harian") {
+      if(jumlah < 1) return alert("Masukkan jumlah hari.");
+      let result = hitungAutoMerge(jumlah);
+      if(result.bulan) detail += result.bulan + " Bulan ";
+      if(result.minggu) detail += result.minggu + " Minggu ";
+      if(result.hari) detail += result.hari + " Hari";
+    }
+    else if(paket === "mingguan") {
+      if(jumlah < 1) return alert("Masukkan jumlah minggu.");
+      let result = hitungAutoMerge(jumlah * 7);
+      if(result.bulan) detail += result.bulan + " Bulan ";
+      if(result.minggu) detail += result.minggu + " Minggu ";
+      if(result.hari) detail += result.hari + " Hari";
+    }
+    else if(paket === "bulanan") {
+      if(jumlah < 1) return alert("Masukkan jumlah bulan.");
+      let result = hitungAutoMerge(jumlah * 30);
+      if(result.bulan) detail += result.bulan + " Bulan ";
+      if(result.minggu) detail += result.minggu + " Minggu ";
+      if(result.hari) detail += result.hari + " Hari";
+    }
+    else {
+      detail = paket.split("|")[0];
+    }
 
-    Saya ingin order Joki Genshin Impact:
+    let nomor = "6285852702386";
 
-    Nama: ${nama}
-    UID: ${uid}
-    Server: ${server}
-    Login : ${login}
-    Paket: ${paket}
-    Catatan: ${catatan}`;
+    let pesan = `Halo Admin Keisha Store,
 
-    var url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+Saya ingin order Joki Genshin Impact:
+
+Nama: ${nama}
+Server: ${server}
+Login: ${login}
+Paket: ${detail.trim()}
+Total: Rp ${total.toLocaleString("id-ID")}`;
+
+    let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
     window.open(url, "_blank");
 
+    // CLEAR STORAGE setelah order
+    localStorage.clear();
   });
 
 });
 </script>
+
+
+
 
 
 </body>
