@@ -131,6 +131,7 @@ section {
   border: none;
   background: #334155;
   color: #fff;
+  resize: none;
 }
 
 .form-box input:focus,
@@ -280,7 +281,7 @@ footer {
   <img src="asset/genshin.webp" alt="Genshin Impact">
   <div class="game-info">
     <h1>Joki Genshin Impact</h1>
-    <p>Layanan joki terpercaya untuk Daily Commission, Spiral Abyss,
+    <p>Layanan joki terpercaya untuk Daily Commission, Event,
     Farming Artifact, dan lainnya. Proses cepat, aman, dan dikerjakan
     oleh player berpengalaman.</p>
   </div>
@@ -312,7 +313,7 @@ footer {
 
       <select id="server" required>
         <option value="">Pilih Server</option>
-        <option>North America</option>
+        <option>America</option>
         <option>Europe</option>
         <option>Asia</option>
         <option>TW/HK/MO</option>
@@ -327,18 +328,18 @@ footer {
 
     <select id="paket" required>
       <option value="">Pilih Joki</option>
-      <option value="harian">Joki Harian (Rp 3.000 / hari)</option>
-      <option value="mingguan">Joki Mingguan (Rp 15.000 / minggu)</option>
-      <option value="bulanan">Joki Bulanan (Rp 50.000 / bulan)</option>
-      <option value="quest|10000">Joki Main Quest - Rp 10.000</option>
-      <option value="event-kecil|10000">Joki Event Kecil - Rp 10.000</option>
-      <option value="event-medium|15000">Joki Event Medium - Rp 15.000</option>
-      <option value="event-besar|30000">Joki Event Besar - Rp 30.000</option>
-      <option value="stellar|10000">Stellar Reunion - Rp 10.000</option>
-      <option value="artifact|5000">Farm Artifact - Rp 5.000</option>
-      <option value="boss|5000">Boss Fight - Rp 5.000</option>
-      <option value="domain|5000">Domain - Rp 5.000</option>
-      <option value="openmap|10000">Open Map - Rp 10.000</option>
+      <option value="Harian">Joki Harian (Rp 3.000 / hari)</option>
+      <option value="Mingguan">Joki Mingguan (Rp 15.000 / minggu)</option>
+      <option value="Bulanan">Joki Bulanan (Rp 50.000 / bulan)</option>
+      <option value="Quest|10000">Joki Main Quest - Rp 10.000</option>
+      <option value="Event-Kecil|10000">Joki Event Kecil - Rp 10.000</option>
+      <option value="Event-Medium|15000">Joki Event Medium - Rp 15.000</option>
+      <option value="Event-Besar|30000">Joki Event Besar - Rp 30.000</option>
+      <option value="Stellar|10000">Stellar Reunion - Rp 10.000</option>
+      <option value="Artifact|5000">Farm Artifact - Rp 5.000</option>
+      <option value="Boss|5000">Boss Fight - Rp 5.000</option>
+      <option value="Domain|5000">Domain - Rp 5.000</option>
+      <option value="OpenMap|10000">Open Map - Rp 10.000</option>
     </select>
 
     <div id="durasiBox" style="display:none; margin-bottom:15px;">
@@ -413,13 +414,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let jumlah = parseInt(jumlahDurasi.value) || 0;
     let total = 0;
 
-    if(paket === "harian") {
+    if(paket === "Harian") {
       total = hitungAutoMerge(jumlah).total;
     }
-    else if(paket === "mingguan") {
+    else if(paket === "Mingguan") {
       total = hitungAutoMerge(jumlah * 7).total;
     }
-    else if(paket === "bulanan") {
+    else if(paket === "Bulanan") {
       total = hitungAutoMerge(jumlah * 30).total;
     }
     else if(paket && paket.includes("|")) {
@@ -437,15 +438,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let paket = this.value;
 
-    if(paket === "harian"){
+    if(paket === "Harian"){
       durasiBox.style.display = "block";
       jumlahDurasi.placeholder = "Masukkan jumlah hari";
     }
-    else if(paket === "mingguan"){
+    else if(paket === "Mingguan"){
       durasiBox.style.display = "block";
       jumlahDurasi.placeholder = "Masukkan jumlah minggu";
     }
-    else if(paket === "bulanan"){
+    else if(paket === "Bulanan"){
       durasiBox.style.display = "block";
       jumlahDurasi.placeholder = "Masukkan jumlah bulan";
     }
@@ -518,21 +519,21 @@ document.addEventListener("DOMContentLoaded", function() {
     let total = hitungHarga();
     let detail = "";
 
-    if(paket === "harian") {
+    if(paket === "Harian") {
       if(jumlah < 1) return alert("Masukkan jumlah hari.");
       let result = hitungAutoMerge(jumlah);
       if(result.bulan) detail += result.bulan + " Bulan ";
       if(result.minggu) detail += result.minggu + " Minggu ";
       if(result.hari) detail += result.hari + " Hari";
     }
-    else if(paket === "mingguan") {
+    else if(paket === "Mingguan") {
       if(jumlah < 1) return alert("Masukkan jumlah minggu.");
       let result = hitungAutoMerge(jumlah * 7);
       if(result.bulan) detail += result.bulan + " Bulan ";
       if(result.minggu) detail += result.minggu + " Minggu ";
       if(result.hari) detail += result.hari + " Hari";
     }
-    else if(paket === "bulanan") {
+    else if(paket === "Bulanan") {
       if(jumlah < 1) return alert("Masukkan jumlah bulan.");
       let result = hitungAutoMerge(jumlah * 30);
       if(result.bulan) detail += result.bulan + " Bulan ";
@@ -545,15 +546,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let nomor = "6285852702386";
 
-    let pesan = `Halo Admin Keisha Store,
-
-Saya ingin order Joki Genshin Impact:
+    let pesan = `Halo Min Keisha Store 
+Mau order Joki Genshin Impact nih. Berikut detailnya:
 
 Nama: ${nama}
 Server: ${server}
 Login: ${login}
 Paket: ${detail.trim()}
-Total: Rp ${total.toLocaleString("id-ID")}`;
+Total: Rp ${total.toLocaleString("id-ID")}
+
+Terimakasih`;
 
     let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
     window.open(url, "_blank");
