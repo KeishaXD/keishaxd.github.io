@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Joki Honkai Star Rail - Keisha Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #ffffff;
+  padding-top: 90px;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: #111827;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #22d3ee;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #22d3ee;
+}
+
+/* ===== HERO VERTICAL ===== */
+.game-hero {
+  max-width: 900px;
+  margin: 50px auto 30px auto;
+  background: #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.game-hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 25px;
+  text-align: center;
+}
+
+.game-info h1 {
+  color: #22d3ee;
+  margin-bottom: 10px;
+}
+
+.game-info p {
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ===== CONTENT ===== */
+section {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ===== NOTES ===== */
+.notes {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.notes h3 {
+  margin-bottom: 10px;
+  color: #facc15;
+}
+
+.notes ul {
+  padding-left: 20px;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+/* ===== FORM ===== */
+.form-box {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  background: #334155;
+  color: #fff;
+  resize: none;
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+  outline: 2px solid #22d3ee;
+}
+
+.form-box {
+  text-align: left;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* penting */
+  gap: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  color: #9ca3af;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #22d3ee;
+  cursor: pointer;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  background: #22d3ee;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #06b6d4;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111827;
+  margin-top: 50px;
+  color: #9ca3af;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .game-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .game-hero img {
+    width: 100%;
+  }
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  /* Hero jadi full vertical & lebih rapat */
+  .game-hero {
+    margin: 20px 15px;
+    padding: 15px;
+  }
+
+  .game-hero img {
+    height: 200px;
+  }
+
+  .game-info {
+    padding: 15px 10px;
+  }
+
+  .game-info h1 {
+    font-size: 20px;
+  }
+
+  /* Section padding diperkecil */
+  section {
+    padding: 15px;
+  }
+
+  /* Notes lebih compact */
+  .notes {
+    padding: 15px;
+  }
+
+  .notes h3 {
+    font-size: 16px;
+  }
+
+  /* Form lebih rapat */
+  .form-box {
+    padding: 20px 15px;
+  }
+
+  .form-box input,
+  .form-box select,
+  .form-box textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+}
+
+.btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎮 Keisha Store</div>
+  <nav>
+    <a href="store.html">Home</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="game-hero">
+  <img src="asset/hsr.webp" alt="Honkai Star Rail">
+  <div class="game-info">
+    <h1>Joki Honkai Star Rail</h1>
+    <p>Layanan joki terpercaya untuk Daily Commission, Event,
+    Farming Artifact, dan lainnya. Proses cepat, aman, dan dikerjakan
+    oleh player berpengalaman.</p>
+  </div>
+</div>
+
+<section>
+
+  <!-- ===== NOTES ===== -->
+<div class="notes">
+  <h3>⚠ Ketentuan Layanan Joki</h3>
+  <ul>
+    <li><strong>Joki Harian / Mingguan / Bulanan</strong> mencakup Daily Commission dan claim reward. Tidak termasuk Spiral Abyss  dan resin spending standar.</li>
+    <li><strong>Joki Main Quest</strong> berlaku untuk 1 rangkaian quest (Archon / Story Quest). Quest panjang atau multi-chapter bisa dikenakan tambahan biaya.</li>
+    <li><strong>Joki Event</strong> menyesuaikan tingkat kesulitan dan progress akun. Event besar dengan banyak stage akan dihitung sesuai paket.</li>
+    <li><strong>Stellar Reunion</strong> berlaku untuk penyelesaian misi reunion standar (tanpa tambahan Spiral Abyss).</li>
+    <li><strong>Farm Artifact / Domain / Boss Fight</strong> menggunakan resin yang tersedia di akun. Jika resin habis, proses dihentikan atau menunggu refill.</li>
+    <li><strong>Open Map</strong> mencakup pembukaan waypoint, statue, dan domain dasar. Tidak termasuk puzzle kompleks, quest tersembunyi, dan waypoint tersembunyi.</li>
+    <li>Customer wajib logout selama proses joki berlangsung untuk menghindari konflik login.</li>
+    <li>Gunakan password sementara demi keamanan akun.</li>
+    <li>Durasi pengerjaan menyesuaikan antrian dan tingkat kesulitan akun.</li>
+    <li>Dengan melakukan order, customer dianggap menyetujui seluruh ketentuan layanan.</li>
+  </ul>
+</div>
+
+
+  <!-- ===== FORM ===== -->
+    <div class="form-box">
+      <input type="text" id="nama" placeholder="Nama Anda" required>
+
+      <select id="server" required>
+        <option value="">Pilih Server</option>
+        <option>America</option>
+        <option>Europe</option>
+        <option>Asia</option>
+        <option>TW/HK/MO</option>
+      </select>
+
+      <select id="login" required>
+        <option value="">Pilih Opsi Login</option>
+        <option>Hoyoverse</option>
+        <option>Google</option>
+        <option>Facebook</option>
+      </select>
+
+    <select id="paket" required>
+      <option value="">Pilih Joki</option>
+      <option value="Harian">Joki Harian (Rp 3.000 / hari)</option>
+      <option value="Mingguan">Joki Mingguan (Rp 15.000 / minggu)</option>
+      <option value="Bulanan">Joki Bulanan (Rp 50.000 / bulan)</option>
+      <option value="Starlit Homecoming|10000">Starlit Homecoming - Rp 10.000</option>
+      <option value="Login Patch|10000">Login Patch - Rp 10.000</option>
+    </select>
+
+    <div id="durasiBox" style="display:none; margin-bottom:15px;">
+      <input type="number" id="jumlahDurasi" min="1" step="1" placeholder="Masukkan jumlah">
+    </div>
+
+    <div style="margin-bottom:15px; color:#22d3ee; font-weight:600;">
+      Total Harga: <span id="hargaText">Rp 0</span>
+    </div>
+
+      <textarea id="catatan" rows="4" placeholder="Catatan Tambahan (Opsional)"></textarea>
+
+      <div class="checkbox">
+        <input type="checkbox" id="agree">
+        <label for="agree">Saya menyetujui syarat & ketentuan</label>
+    </div>
+
+  <button class="btn" id="orderBtn" disabled>
+    Pesan Sekarang
+  </button>
+</div>
+
+</section>
+
+<footer>
+  © 2026 Keisha Store
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  const formBox = document.querySelector(".form-box");
+  const fields = formBox.querySelectorAll("input, select, textarea");
+
+  const paketSelect = document.getElementById("paket");
+  const durasiBox = document.getElementById("durasiBox");
+  const jumlahDurasi = document.getElementById("jumlahDurasi");
+  const hargaText = document.getElementById("hargaText");
+  const checkbox = document.getElementById("agree");
+  const button = document.getElementById("orderBtn");
+
+  // ==============================
+  // AUTO MERGE SYSTEM
+  // ==============================
+  function hitungAutoMerge(totalHari) {
+
+    let sisa = totalHari;
+
+    let bulan = Math.floor(sisa / 30);
+    sisa %= 30;
+
+    let minggu = Math.floor(sisa / 7);
+    sisa %= 7;
+
+    let total =
+      (bulan * 50000) +
+      (minggu * 15000) +
+      (sisa * 3000);
+
+    return { total, bulan, minggu, hari: sisa };
+  }
+
+  // ==============================
+  // HITUNG HARGA GLOBAL
+  // ==============================
+function hitungHarga() {
+
+  let paket = paketSelect.value;
+  let jumlah = parseInt(jumlahDurasi.value) || 0;
+  let total = 0;
+
+  if((paket === "Harian" || paket === "Mingguan" || paket === "Bulanan") && jumlah < 1){
+  hargaText.innerText = "Rp 0";
+  return 0;
+}
+
+  if(paket === "Harian") {
+    total = hitungAutoMerge(jumlah).total;
+  }
+  else if(paket === "Mingguan") {
+  total = jumlah * 15000;
+
+  if(jumlah === 4){
+    total = 50000;
+  }
+}
+  else if(paket === "Bulanan") {
+    total = jumlah * 50000;
+}
+
+  else if(paket && paket.includes("|")) {
+    total = parseInt(paket.split("|")[1]);
+  }
+
+  hargaText.innerText = "Rp " + total.toLocaleString("id-ID");
+  return total;
+}
+
+
+  jumlahDurasi.addEventListener("input", hitungHarga);
+
+
+paketSelect.addEventListener("change", function(){
+
+  let paket = this.value;
+
+  if(paket === "Harian"){
+    durasiBox.style.display = "block";
+    jumlahDurasi.placeholder = "Masukkan jumlah hari";
+  }
+  else if(paket === "Mingguan"){
+    durasiBox.style.display = "block";
+    jumlahDurasi.placeholder = "Masukkan jumlah minggu";
+  }
+  else if(paket === "Bulanan"){
+    durasiBox.style.display = "block";
+    jumlahDurasi.placeholder = "Masukkan jumlah bulan";
+  }
+  else {
+    durasiBox.style.display = "none";
+    jumlahDurasi.value = "";
+  }
+
+  hitungHarga();
+});
+
+
+  // ==============================
+  // ENABLE BUTTON
+  // ==============================
+  button.disabled = !checkbox.checked;
+  checkbox.addEventListener("change", function() {
+    button.disabled = !this.checked;
+  });
+
+  // ==============================
+  // AUTO SAVE
+  // ==============================
+  fields.forEach(field => {
+
+    // LOAD
+    const saved = localStorage.getItem(field.id);
+    if(saved !== null){
+      if(field.type === "checkbox"){
+        field.checked = saved === "true";
+      } else {
+        field.value = saved;
+      }
+    }
+
+    // SAVE
+    field.addEventListener("input", saveField);
+    field.addEventListener("change", saveField);
+
+    function saveField(){
+      if(field.type === "checkbox"){
+        localStorage.setItem(field.id, field.checked);
+      } else {
+        localStorage.setItem(field.id, field.value);
+      }
+    }
+  });
+
+  // Trigger ulang agar harga ikut terhitung setelah restore
+  paketSelect.dispatchEvent(new Event("change"));
+  hitungHarga();
+
+  // ==============================
+  // KIRIM WA
+  // ==============================
+  button.addEventListener("click", function() {
+
+    let nama = document.getElementById("nama").value.trim();
+    let server = document.getElementById("server").value;
+    let login = document.getElementById("login").value;
+    let paket = paketSelect.value;
+    let jumlah = parseInt(jumlahDurasi.value) || 0;
+
+    if(nama === "" || server === "" || login === "" || paket === ""){
+      alert("Mohon lengkapi data terlebih dahulu.");
+      return;
+    }
+
+    let total = hitungHarga();
+    let detail = "";
+
+    if(paket === "Harian") {
+      if(jumlah < 1) return alert("Masukkan jumlah hari.");
+      let result = hitungAutoMerge(jumlah);
+      if(result.bulan) detail += result.bulan + " Bulan ";
+      if(result.minggu) detail += result.minggu + " Minggu ";
+      if(result.hari) detail += result.hari + " Hari";
+    }
+    else if(paket === "Mingguan") {
+      if(jumlah < 1) return alert("Masukkan jumlah minggu.");
+      let result = hitungAutoMerge(jumlah * 7);
+      if(result.bulan) detail += result.bulan + " Bulan ";
+      if(result.minggu) detail += result.minggu + " Minggu ";
+      if(result.hari) detail += result.hari + " Hari";
+    }
+      else if(paket === "Bulanan") {
+      if(jumlah < 1) return alert("Masukkan jumlah bulan.");
+      detail = jumlah + " Bulan";
+    }
+    else {
+      detail = paket.split("|")[0];
+    }
+
+    let nomor = "6285852702386";
+
+    let pesan = `Halo Min Keisha Store 
+Mau order Joki Genshin Impact nih. Berikut detailnya:
+
+Nama: ${nama}
+Server: ${server}
+Login: ${login}
+Paket: ${detail.trim()}
+Total: Rp ${total.toLocaleString("id-ID")}
+
+Terimakasih`;
+
+    let url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+    window.open(url, "_blank");
+
+    // CLEAR STORAGE setelah order
+    fields.forEach(field => localStorage.removeItem(field.id));
+    location.reload();
+  });
+
+});
+</script>
+
+
+
+
+
+</body>
+</html>
