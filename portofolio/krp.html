@@ -12,6 +12,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f2f4f7;
+    overflow-x: hidden;
 }
 
 .header {
@@ -109,15 +110,35 @@ ul {
     font-size: 14px;
 }
 
+.profile {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.profile-img {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+}
+
+.info {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
 .table-wrapper {
     background: white;
     padding: 15px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     margin-bottom: 20px;
+    overflow-x: visible;
 }
 
 table {
     width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     margin-bottom: 15px;
 }
@@ -126,6 +147,41 @@ th, td {
     padding: 10px;
     border: 1px solid #ddd;
     font-size: 14px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    vertical-align: top;
+}
+
+table th:nth-child(1),
+table td:nth-child(1) {
+    width: 7%;
+}
+
+table th:nth-child(2),
+table td:nth-child(2) {
+    width: 20%;
+}
+
+table th:nth-child(3),
+table td:nth-child(3) {
+    width: 43%;
+}
+
+table th:nth-child(4),
+table td:nth-child(4) {
+    width: 10%;
+}
+
+table th:nth-child(5),
+table td:nth-child(5) {
+    width: 10%;
+}
+
+table th:nth-child(6),
+table td:nth-child(6) {
+    width: 10%;
+    text-align: center;
 }
 
 th {
@@ -139,6 +195,7 @@ th {
 }
 
 .btn {
+    display: inline-block;
     padding: 5px 8px;
     font-size: 12px;
     border: none;
@@ -146,6 +203,32 @@ th {
     background: #3498db;
     color: white;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.footer {
+    background: #0b3d91;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: 40px;
+    font-size: 13px;
+}
+
+.empty-row {
+    text-align: center !important;
+    vertical-align: middle;
+    color: #777;
+    font-style: italic;
+    background: #fafafa;
+}
+
+tr:hover td {
+    background: #f8fbff;
+}
+
+tr:hover .empty-row {
+    background: #fafafa;
 }
 
 /* RESPONSIVE MEDIA QUERY */
@@ -160,12 +243,57 @@ th {
         font-size: 11px;
     }
 
-    .table-wrapper {
+   .table-wrapper {
         padding: 10px;
     }
 
     .number-col {
-        width: 40px;
+        width: auto;
+    }
+
+    table th:nth-child(1),
+    table td:nth-child(1) {
+        width: 6%;
+    }
+
+    table th:nth-child(2),
+    table td:nth-child(2) {
+        width: 20%;
+    }
+
+    table th:nth-child(3),
+    table td:nth-child(3) {
+        width: 42%;
+    }
+
+    table th:nth-child(4),
+    table td:nth-child(4),
+    table th:nth-child(5),
+    table td:nth-child(5),
+    table th:nth-child(6),
+    table td:nth-child(6) {
+        width: 10.6%;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .header-btn {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
 
@@ -180,14 +308,24 @@ th {
         font-size: 10px;
     }
 
-    .table-wrapper {
+   .table-wrapper {
         overflow-x: auto;
         padding: 8px;
     }
 
     .number-col {
-        width: 35px;
+        width: auto;
     }
+
+    th, td {
+        line-height: 1.35;
+    }
+
+    .btn {
+        white-space: normal;
+        word-break: break-word;
+    }
+
 }
 </style>
 </head>
@@ -212,10 +350,9 @@ th {
     <!-- ================= DATA MAHASISWA ================= -->
     <div class="card">
         <h3>Data Mahasiswa</h3>
-        <div class="profile" style="display:flex; gap:20px; align-items:flex-start;">
-        <img src="asset/pict/photo_krp.jpg" 
-            style="width:120px; height:auto; border-radius:6px;">
-            <div class="info" style="font-size:14px; line-height:1.6;">
+        <div class="profile">
+        <img src="asset/pict/photo_krp.jpg" class="profile-img">
+            <div class="info">
                 <strong>Nama:</strong> Jovallin Keisha Rafael Dewantara <br>
                 <strong>Tempat Tanggal Lahir :</strong> Madiun - 17 April 2006 <br>
                 <strong>NIM:</strong> 25040254153 <br>
@@ -254,7 +391,7 @@ th {
 
 <li><b>Kegiatan Bidang Minat dan Bakat</b>
 <ul>
-<li>Melaksanakan Aktifitas Rutin Berkaitan dengan Kegiatan Minat dan Bakat yang diselenggarakan UKM</li>
+<li>Melaksanakan Aktivitas Rutin Berkaitan dengan Kegiatan Minat dan Bakat yang diselenggarakan UKM</li>
 <li>Melaksanakan latihan gabungan</li>
 <li>Memperoleh Prestasi dalam Kegiatan Minat dan Bakat (Olahraga, Seni dan Kerohanian)</li>
 <li>Mengelola kewirausahaan</li>
@@ -281,9 +418,9 @@ th {
 <ul>
 <li>Mawapres</li>
 <li>Memberikan Pelatihan/ Bimbingan dalam Penyusunan Karya Tulis</li>
-<li>Memperoleh prestasi dalam Lomba Karya Tulis Ilmiah/ Lingkungan Hidup/ Kreatifvitas/Inovatif/Pemikiran Kritis/Populer/Enterpreneurship/Bussiness Plan/Olimpiade/Robotika</li>
+<li>Memperoleh prestasi dalam Lomba Karya Tulis Ilmiah/ Lingkungan Hidup/ Kreatifvitas/Inovatif/Pemikiran Kritis/Populer/Entrepreneurship/Business Plan/Olimpiade/Robotika</li>
 <li>Menghasilkan karya ilmiah dipublikasikan</li>
-<li>Menghasilkan Karya Popular yang diterbitkan di Surat Kabar/ Majalah/ Media lainnya</li>
+<li>Menghasilkan Karya Populer yang diterbitkan di Surat Kabar/ Majalah/ Media lainnya</li>
 <li>Menghasilkan Karya yang Tidak dipublikasikan</li>
 <li>Menghasilkan Temuan Inovasi yang Dipatenkan</li>
 <li>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</li>
@@ -294,13 +431,15 @@ th {
 </ul>
 </li>
 
-<li><b>Kegiatan Lainnya</b></li>
+<li><b>Kegiatan Lainnya</b>
 <ul>
 <li>Berpartisipasi dalam Kegiatan Alumni</li>
 <li>Kursus Keterampilan Berbahasa Asing</li>
 <li>Melakukan Kunjungan / Studi Banding</li>
 <li>Peserta Upacara Bendera</li>
 <li>Petugas Upacara Bendera</li>
+</ul>
+</li>
 </ul>
 </div>
 
@@ -361,6 +500,9 @@ th {
             <th>Semester</th>
             <th>Aksi</th>
         </tr>
+        <tr>
+            <td colspan="6" class="empty-row">Belum ada data kegiatan.</td>
+        </tr>
     </table>
 
 </div>
@@ -382,6 +524,9 @@ th {
             <th>Semester</th>
             <th>Aksi</th>
         </tr>
+        <tr>
+            <td colspan="6" class="empty-row">Belum ada data kegiatan.</td>
+        </tr>
     </table>
 
     <!-- Minat dan Bakat -->
@@ -394,6 +539,9 @@ th {
             <th>Tahun</th>
             <th>Semester</th>
             <th>Aksi</th>
+        </tr>
+        <tr>
+            <td colspan="6" class="empty-row">Belum ada data kegiatan.</td>
         </tr>
     </table>
 
@@ -478,7 +626,7 @@ th {
         <tr>
             <td class="number-col">6</td>
             <td>Mengikuti Kuliah Tamu</td>
-            <td>Judul kegiatan "Becoming Responsible Digital Citizenship in the ASEAN Region: Ethics, Literacy, and Civic Engagement" dilaksanakan pada 17 Nopember 2025 oleh Program Studi S1 Pendidikan Pancasila dan Kewarganegaraan Fakultas Ilmu Sosial dan ilmu Politik, Universitas Negeri Surabaya</td>
+            <td>Judul kegiatan "Becoming Responsible Digital Citizenship in the ASEAN Region: Ethics, Literacy, and Civic Engagement" dilaksanakan pada 17 November 2025 oleh Program Studi S1 Pendidikan Pancasila dan Kewarganegaraan Fakultas Ilmu Sosial dan ilmu Politik, Universitas Negeri Surabaya</td>
             <td>2025</td>
             <td>1</td>
             <td><a href="asset/sertif/sem1/06-kuliah-tamu.pdf" target="_blank" class="btn">Detail</a></td>
@@ -532,7 +680,7 @@ th {
             <td class="number-col">12</td>
             <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
             <td>Tingkat Nasional sebagai Peserta<br>
-                Judul kegiatan "Fundamental Public Speaking Training" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+                Judul kegiatan "Fundamental Public Speaking Training" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Entrepreneur Summit</td>
             <td>2025</td>
             <td>1</td>
             <td><a href="asset/sertif/sem1/12.pdf" target="_blank" class="btn">Detail</a></td>
@@ -541,7 +689,7 @@ th {
             <td class="number-col">13</td>
             <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
             <td>Tingkat Nasional sebagai Peserta<br>
-                Judul kegiatan "Futurepreneur National Competition" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+                Judul kegiatan "Futurepreneur National Competition" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Entrepreneur Summit</td>
             <td>2025</td>
             <td>1</td>
             <td><a href="asset/sertif/sem1/13.pdf" target="_blank" class="btn">Detail</a></td>
@@ -550,7 +698,7 @@ th {
             <td class="number-col">14</td>
             <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
             <td>Tingkat Internasional sebagai Peserta<br>
-                Judul kegiatan "International Youth Innovation Summit Selection Program 2025" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+                Judul kegiatan "International Youth Innovation Summit Selection Program 2025" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Entrepreneur Summit</td>
             <td>2025</td>
             <td>1</td>
             <td><a href="asset/sertif/sem1/14.pdf" target="_blank" class="btn">Detail</a></td>
@@ -559,7 +707,7 @@ th {
             <td class="number-col">15</td>
             <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
             <td>Tingkat Nasional sebagai Peserta<br>
-                Judul kegiatan "Improvement Softskill Webinar" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Enterpreneur Summit</td>
+                Judul kegiatan "Improvement Softskill Webinar" dilaksanakan pada 21 Desember 2025 oleh Growt Insight X Future Entrepreneur Summit</td>
             <td>2025</td>
             <td>1</td>
             <td><a href="asset/sertif/sem1/15.pdf" target="_blank" class="btn">Detail</a></td>
@@ -568,7 +716,7 @@ th {
             <td class="number-col">16</td>
             <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
             <td>Tingkat Nasional sebagai Peserta<br>
-                Judul kegiatan "Future Enterpreneur Indonesia Summit dilaksanakan pada 21 Desember 2025" oleh Growt Insight X Future Enterpreneur Summit</td>
+                Judul kegiatan "Future Entrepreneur Indonesia Summit dilaksanakan pada 21 Desember 2025" oleh Growt Insight X Future Entrepreneur Summit</td>
             <td>2025</td>
             <td>1</td>
             <td><a href="asset/sertif/sem1/16.pdf" target="_blank" class="btn">Detail</a></td>
@@ -622,7 +770,7 @@ th {
             <td class="number-col">22</td>
             <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
             <td>Tingkat Nasional sebagai Peserta<br>
-                Judul kegiatan "AI For Freelancer : Workflow Freelancer Bebasis AI" dilaksanakan pada 01 Februari 2026 oleh Ai For Everyone</td>
+                Judul kegiatan "AI For Freelancer : Workflow Freelancer Berbasis AI" dilaksanakan pada 01 Februari 2026 oleh Ai For Everyone</td>
             <td>2026</td>
             <td>1</td>
             <td><a href="asset/sertif/sem1/22.pdf" target="_blank" class="btn">Detail</a></td>
@@ -667,7 +815,7 @@ th {
             <td class="number-col">27</td>
             <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
             <td>Tingkat Nasional sebagai Peserta<br>
-                Judul kegiatan AI For Muslim Enterpreneurs: Strategi, Mindset and Execution dilaksanakan pada 14 Februari 2026 oleh AI For Everyone</td>
+                Judul kegiatan AI For Muslim Entrepreneurs: Strategi, Mindset and Execution dilaksanakan pada 14 Februari 2026 oleh AI For Everyone</td>
             <td>2026</td>
             <td>2</td>
             <td><a href="asset/sertif/sem2/27.pdf" target="_blank" class="btn">Detail</a></td>
@@ -721,10 +869,28 @@ th {
             <td class="number-col">33</td>
             <td>Mengikuti Kuliah Tamu</td>
             <td>Tingkat Fakultas sebagai Peserta<br>
-                Judul kegiatan "Citizenship di Era Global dan Difital: Menuju Indonesia Emas 2045 dan SDGs" dilaksanakan pada 23 April 2026 oleh Fakultas Ilmu Sosial dan ilmu Politik, Universitas Negeri Surabaya</td>
+                Judul kegiatan "Citizenship di Era Global dan Digital: Menuju Indonesia Emas 2045 dan SDGs" dilaksanakan pada 23 April 2026 oleh Fakultas Ilmu Sosial dan ilmu Politik, Universitas Negeri Surabaya</td>
             <td>2026</td>
             <td>2</td>
             <td><a href="asset/sertif/sem2/33-kuliah-tamu.pdf" target="_blank" class="btn">Detail</a></td>
+        </tr>
+        <tr>
+            <td class="number-col">34</td>
+            <td>Mengikuti Kegiatan/ Forum Ilmiah (Seminar, Lokakarya, Workshop, Pameran)</td>
+            <td>Tingkat Internasional sebagai Peserta<br>
+                Judul kegiatan "Webinar Kuliner Lintas Negara: Pertukaran Rasa dan Budaya" dilaksanakan pada 16 Mei 2026 oleh BIPA (Bahasa Indonesia bagi Penutur Asing) Fakultas Bahasa dan Seni Universitas Negeri Surabaya</td>
+            <td>2026</td>
+            <td>2</td>
+            <td><a href="asset/sertif/sem2/34.pdf" target="_blank" class="btn">Detail</a></td>
+        </tr>
+        <tr>
+            <td class="number-col">35</td>
+            <td>Mengikuti Kuliah Tamu</td>
+            <td>Tingkat Fakultas sebagai Peserta<br>
+                Judul kegiatan "Borneo in The 21st Century: Change, Challenges, and Choices" dilaksanakan pada 19 Mei 2026 oleh Fakultas Ilmu Sosial dan Ilmu Politik Universitas Negeri Surabaya</td>
+            <td>2026</td>
+            <td>2</td>
+            <td><a href="asset/sertif/sem2/35-kuliah-tamu.pdf" target="_blank" class="btn">Detail</a></td>
         </tr>
     </table>
 
@@ -754,7 +920,7 @@ th {
 </div>
 
 <!-- ================= FOOTER ================= -->
-<footer style="background:#0b3d91; color:white; text-align:center; padding:15px 10px; margin-top:40px; font-size:13px;">
+<footer class="footer">
     © 2026 Jovallin Keisha Rafael Dewantara | Dibuat untuk Portofolio Pribadi<br>
     Inspirasi tampilan dari sistem akademik kampus Universitas Negeri Surabaya (SIPENA)
 </footer>
