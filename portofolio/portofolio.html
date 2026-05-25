@@ -2,479 +2,758 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio | Jovallin Keisha Rafael Dewantara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio | Jovallin Keisha Rafael Dewantara</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
+    :root {
+      --bg: #f4f0e8;
+      --paper: #fffaf2;
+      --ink: #18202f;
+      --muted: #5f6b7a;
+      --line: #d8d0c2;
+      --green: #0d6b55;
+      --blue: #27548a;
+      --coral: #c65b3e;
+      --shadow: 0 18px 45px rgba(24, 32, 47, 0.12);
     }
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#0b1120;
-      color:#e5e7eb;
-      line-height:1.7;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, rgba(24, 32, 47, 0.045) 1px, transparent 1px),
+        linear-gradient(rgba(24, 32, 47, 0.045) 1px, transparent 1px),
+        var(--bg);
+      background-size: 34px 34px;
+      color: var(--ink);
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.65;
     }
 
-    /* NAVBAR */
-
-    nav{
-      position:fixed;
-      top:0;
-      width:100%;
-      padding:18px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(11,17,32,0.82);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,0.05);
-      z-index:1000;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .logo{
-      font-size:18px;
-      font-weight:600;
-      color:#f8fafc;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    nav ul{
-      display:flex;
-      gap:28px;
-      list-style:none;
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    nav ul li a{
-      font-size:14px;
-      color:#cbd5e1;
-      transition:.2s;
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(24, 32, 47, 0.12);
+      background: rgba(244, 240, 232, 0.88);
+      backdrop-filter: blur(14px);
     }
 
-    nav ul li a:hover{
-      color:#60a5fa;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
     }
 
-    /* HERO */
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:120px 8% 80px;
+    .brand {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0;
     }
 
-    .hero-container{
-      max-width:900px;
-      text-align:center;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      list-style: none;
     }
 
-    .hero img{
-      width:140px;
-      height:140px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid rgba(96,165,250,.4);
-      margin-bottom:28px;
+    .nav-links a:hover {
+      color: var(--green);
     }
 
-    .hero h1{
-      font-size:48px;
-      line-height:1.2;
-      margin-bottom:18px;
-      color:#f8fafc;
+    .hero {
+      min-height: calc(100vh - 65px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.72fr);
+      align-items: center;
+      gap: 52px;
+      padding: 70px 0 64px;
     }
 
-    .hero p{
-      color:#94a3b8;
-      font-size:16px;
-      max-width:700px;
-      margin:auto;
+    .eyebrow {
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      text-transform: uppercase;
     }
 
-    .hero-btn{
-      margin-top:32px;
-      display:inline-flex;
-      gap:14px;
-      flex-wrap:wrap;
-      justify-content:center;
+    h1 {
+      max-width: 760px;
+      font-size: clamp(42px, 7vw, 78px);
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 0.98;
     }
 
-    .btn{
-      padding:12px 22px;
-      border-radius:12px;
-      font-size:14px;
-      font-weight:500;
-      transition:.2s;
+    .lead {
+      max-width: 680px;
+      margin-top: 24px;
+      color: #394557;
+      font-size: 18px;
     }
 
-    .btn-primary{
-      background:#2563eb;
-      color:white;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
     }
 
-    .btn-primary:hover{
-      background:#3b82f6;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border: 1px solid var(--ink);
+      border-radius: 8px;
+      padding: 11px 18px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
 
-    .btn-secondary{
-      border:1px solid rgba(255,255,255,.1);
-      color:#cbd5e1;
+    .btn:hover {
+      box-shadow: 5px 5px 0 var(--ink);
+      transform: translate(-3px, -3px);
     }
 
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.05);
+    .btn.primary {
+      background: var(--green);
+      color: #fffaf2;
     }
 
-    /* SECTION */
-
-    section{
-      padding:80px 8%;
+    .btn.secondary {
+      background: var(--paper);
     }
 
-    .section-title{
-      font-size:28px;
-      margin-bottom:28px;
-      color:#f8fafc;
+    .portrait-card {
+      position: relative;
+      border: 1px solid var(--ink);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .card{
-      background:#111827;
-      border:1px solid rgba(255,255,255,.05);
-      border-radius:18px;
-      padding:28px;
+    .portrait-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.92) contrast(1.02);
     }
 
-    .card p{
-      color:#cbd5e1;
+    .photo-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid var(--ink);
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:22px;
+    section {
+      padding: 78px 0;
     }
 
-    .project-card{
-      background:#111827;
-      border:1px solid rgba(255,255,255,.05);
-      border-radius:18px;
-      padding:24px;
-      transition:.2s;
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.35fr 1fr;
+      gap: 34px;
+      margin-bottom: 28px;
+      border-top: 2px solid var(--ink);
+      padding-top: 18px;
     }
 
-    .project-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(96,165,250,.3);
+    .section-head h2 {
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1.2;
     }
 
-    .project-card h4{
-      margin-bottom:12px;
-      font-size:18px;
-      color:#f8fafc;
+    .section-head p {
+      max-width: 700px;
+      color: var(--muted);
     }
 
-    .project-card p{
-      color:#94a3b8;
-      font-size:14px;
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 250, 242, 0.76);
+      padding: 24px;
     }
 
-    .project-link{
-      display:inline-block;
-      margin-top:18px;
-      color:#60a5fa;
-      font-size:14px;
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
     }
 
-    .list{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      color:#cbd5e1;
+    .about-copy p + p {
+      margin-top: 16px;
     }
 
-    footer{
-      padding:40px;
-      text-align:center;
-      color:#64748b;
-      font-size:14px;
+    .note {
+      border-color: var(--ink);
+      background: #f8df86;
+      box-shadow: 7px 7px 0 rgba(24, 32, 47, 0.92);
+      color: #241f18;
     }
 
-    @media(max-width:768px){
+    .note strong,
+    .meta-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
 
-      nav ul{
-        display:none;
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      padding: 8px 12px;
+      color: #2b3444;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel-action {
+      margin-top: 20px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+    }
+
+    .timeline-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .time {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h3 {
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .timeline-item p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      display: flex;
+      min-height: 300px;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--ink);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 22px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .project:hover {
+      box-shadow: 7px 7px 0 var(--ink);
+      transform: translate(-4px, -4px);
+    }
+
+    .project h3 {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .project p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tagline {
+      color: var(--coral);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .project-link {
+      margin-top: 22px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact a {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about-grid,
+      .contact,
+      .section-head {
+        grid-template-columns: 1fr;
       }
 
-      .hero h1{
-        font-size:34px;
+      .hero {
+        gap: 34px;
+        padding-top: 46px;
       }
 
-      .hero{
-        padding-top:140px;
+      .portrait-card {
+        max-width: 390px;
       }
 
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        white-space: nowrap;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Navigasi utama">
+      <a class="brand" href="#">Jovallin Keisha Rafael Dewantara (KeishaXD)</a>
 
-<!-- NAVBAR -->
+      <ul class="nav-links">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#skills">Skill</a></li>
+        <li><a href="#education">Pendidikan</a></li>
+        <li><a href="#projects">Project</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<nav>
-  <div class="logo">KeishaXD</div>
-
-  <ul>
-    <li><a href="#about">Tentang</a></li>
-    <li><a href="#skills">Skill</a></li>
-    <li><a href="#projects">Project</a></li>
-    <li><a href="#contact">Kontak</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="hero-container">
-
-    <img src="asset/pict/photo.jpg" alt="Profile">
-
-    <h1>Jovallin Keisha Rafael Dewantara</h1>
-
-    <p>
-      Mahasiswa PPKN yang tertarik pada web development, Android modding,
-      Linux customization, dan eksplorasi sistem open-source.
-      Sebagian besar project yang saya buat berawal dari eksperimen pribadi
-      untuk mempelajari bagaimana sebuah sistem bekerja dan bisa dikustomisasi.
-    </p>
-
-    <div class="hero-btn">
-      <a href="#projects" class="btn btn-primary">Lihat Project</a>
-
-      <a href="https://github.com/KeishaXD" target="_blank" class="btn btn-secondary">
-        GitHub
-      </a>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-  <h2 class="section-title">Tentang Saya</h2>
-
-  <div class="card">
-    <p>
-      Saya lebih sering belajar secara otodidak melalui dokumentasi,
-      forum komunitas, dan eksperimen langsung.
-      Saat ini saya banyak mengeksplorasi WebUI Magisk,
-      Android tweaking, serta pengembangan project kecil berbasis web.
-    </p>
-
-    <br>
-
-    <p>
-      Saya juga memiliki ketertarikan pada Linux customization dan modifikasi sistem,
-      terutama dalam membuat tampilan, tools, atau workflow yang lebih ringan,
-      sederhana, dan nyaman digunakan.
-    </p>
-  </div>
-
-</section>
-
-<!-- EDUCATION -->
-
-<section id="education">
-
-  <h2 class="section-title">Pendidikan</h2>
-
-  <div class="card">
-
-    <div class="list">
-      <div>SMP Negeri 1 Ngoro Jombang</div>
-      <div>SMA Negeri Ngoro Jombang</div>
-      <div>Universitas Negeri Surabaya — Pendidikan Pancasila dan Kewarganegaraan</div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section id="experience">
-
-  <h2 class="section-title">Pengalaman</h2>
-
-  <div class="card">
-
-    <div class="list">
+  <main class="wrap">
+    <section class="hero">
       <div>
-        Membantu operasional toko roti keluarga,
-        termasuk pelayanan pelanggan dan aktivitas harian usaha.
+        <p class="eyebrow">PPKN student / Android tinkerer / web learner</p>
+        <h1>Halo, saya Jovallin Keisha Rafael Dewantara.</h1>
+        <p class="lead">
+          Saya mahasiswa Pendidikan Pancasila dan Kewarganegaraan di Universitas
+          Negeri Surabaya yang bercita-cita menjadi guru PKN. Di sisi lain, saya
+          juga tertarik pada dunia IT, terutama pengembangan Android, software, dan
+          project kecil yang saya bangun lewat proses belajar mandiri, eksplorasi,
+          serta bantuan AI melalui vibecode.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">Lihat project</a>
+          <a class="btn secondary" href="krp.html">Kartu Rencana Prestasi</a>
+          <a class="btn secondary" href="https://github.com/KeishaXD" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
 
-      <div>
-        Membantu pengelolaan usaha kuliner keluarga
-        dalam operasional dan administrasi sederhana.
+      <figure class="portrait-card">
+        <img src="asset/pict/photo.jpg" alt="Foto Jovallin Keisha Rafael Dewantara">
+        <figcaption class="photo-caption">
+          <span>Jovallin Keisha Rafael Dewantara (KeishaXD)</span>
+          <span>Jombang / Surabaya</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <h2>Tentang</h2>
+        <p>
+          Saya bukan programmer yang sudah dalam banget. Saya hanya tahu sedikit
+          tentang koding, tapi cukup penasaran untuk mencoba sampai sebuah ide kecil
+          bisa jalan dan terasa enak dipakai.
+        </p>
       </div>
 
-      <div>
-        Aktif mempelajari pengembangan project personal
-        berbasis Android dan web secara mandiri.
+      <div class="about-grid">
+        <div class="panel about-copy">
+          <p>
+            Saya adalah mahasiswa Universitas Negeri Surabaya (UNESA) dengan jurusan
+            Pendidikan Pancasila dan Kewarganegaraan. Sebelumnya, saya merupakan
+            lulusan jurusan IPA dari SMA Negeri Ngoro.
+          </p>
+          <p>
+            Saya memiliki keinginan untuk menjadi guru PKN, sekaligus mempunyai
+            ketertarikan di bidang IT, terutama software dan pengembangan Android
+            seperti kernel, ROM, dan hal-hal lain yang berhubungan dengan sistem.
+            Dari sana saya belajar memahami teknologi secara bertahap lewat proses
+            mencoba, mengamati, dan memperbaiki.
+          </p>
+        </div>
+
+        <aside class="panel note">
+          <strong>Catatan kecil</strong>
+          Saya tidak selalu tahu istilah teknisnya, tapi saya suka prosesnya:
+          lihat contoh, ubah sedikit, coba lagi, lalu paham satu bagian baru.
+          Bagi saya, itu bagian paling seru dari vibecoding.
+        </aside>
       </div>
-    </div>
+    </section>
 
-  </div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-  <h2 class="section-title">Keterampilan</h2>
-
-  <div class="grid">
-
-    <div class="card">
-
-      <h3>Technical</h3>
-
-      <br>
-
-      <div class="list">
-        <div>HTML, CSS, JavaScript Dasar</div>
-        <div>Python Dasar</div>
-        <div>Git & GitHub</div>
-        <div>WebUI Magisk</div>
-        <div>Android Modding</div>
-        <div>Linux Customization</div>
-        <div>Reverse Engineering Dasar</div>
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <h3>Soft Skills</h3>
-
-      <br>
-
-      <div class="list">
-        <div>Problem Solving</div>
-        <div>Manajemen Waktu</div>
-        <div>Kerja Tim</div>
-        <div>Adaptasi Teknologi</div>
-        <div>Belajar Mandiri</div>
+    <section id="skills">
+      <div class="section-head">
+        <h2>Skill</h2>
+        <p>
+          Skill saya masih terus bertumbuh. Daftar ini lebih jujur sebagai area yang
+          sering saya pakai dan pelajari, bukan klaim sudah mahir semuanya.
+        </p>
       </div>
 
-    </div>
+      <div class="about-grid">
+        <div class="panel">
+          <span class="meta-label">Teknis</span>
+          <div class="stack">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript dasar</span>
+            <span class="chip">Python dasar</span>
+            <span class="chip">Git & GitHub</span>
+            <span class="chip">WebUI Magisk</span>
+            <span class="chip">Android modding</span>
+            <span class="chip">Linux customization</span>
+            <span class="chip">Reverse engineering dasar</span>
+          </div>
+        </div>
 
-  </div>
+        <div class="panel">
+          <span class="meta-label">Cara kerja</span>
+          <div class="stack">
+            <span class="chip">Belajar mandiri</span>
+            <span class="chip">Troubleshooting</span>
+            <span class="chip">Manajemen waktu</span>
+            <span class="chip">Adaptasi teknologi</span>
+            <span class="chip">Kerja tim</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section id="education">
+      <div class="section-head">
+        <h2>Riwayat Pendidikan</h2>
+        <p>
+          Bagian ini merangkum perjalanan pendidikan saya dari jenjang awal sampai
+          kuliah saat ini, disusun dari tingkat pendidikan tertinggi.
+        </p>
+      </div>
 
-<!-- PROJECTS -->
+      <div class="panel timeline">
+        <article class="timeline-item">
+          <div class="time">Kuliah (Sekarang)</div>
+          <div>
+            <h3>Universitas Negeri Surabaya (UNESA)</h3>
+          </div>
+        </article>
 
-<section id="projects">
+        <article class="timeline-item">
+          <div class="time">SMA</div>
+          <div>
+            <h3>Sekolah Menengah Atas Negeri Ngoro Jombang</h3>
+          </div>
+        </article>
 
-  <h2 class="section-title">Project</h2>
+        <article class="timeline-item">
+          <div class="time">SMP</div>
+          <div>
+            <h3>Sekolah Menengah Pertama Negeri 1 Ngoro Jombang</h3>
+          </div>
+        </article>
 
-  <div class="grid">
-    <div class="project-card">
+        <article class="timeline-item">
+          <div class="time">SD</div>
+          <div>
+            <h3>Sekolah Dasar Negeri Kauman 1 Jombang</h3>
+          </div>
+        </article>
 
-      <h4>KeiYomi</h4>
+        <article class="timeline-item">
+          <div class="time">SD</div>
+          <div>
+            <h3>Sekolah Dasar Negeri Klegen 1 Madiun</h3>
+          </div>
+        </article>
 
-      <p>
-        Project open-source berbasis web yang dikembangkan
-        sebagai bagian dari eksplorasi UI, customization,
-        dan pengembangan aplikasi modern.
-      </p>
+        <article class="timeline-item">
+          <div class="time">TK</div>
+          <div>
+            <h3>TK Yayasan Wanita Kereta Api</h3>
+          </div>
+        </article>
 
-      <a class="project-link"
-        href="https://github.com/KeishaXD/KeiYomi"
-        target="_blank">
-        Lihat Repository →
-      </a>
+        <article class="timeline-item">
+          <div class="time">PAUD</div>
+          <div>
+            <h3>Paud Wijaya Kusuma</h3>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    </div>
+    <section id="experience">
+      <div class="section-head">
+        <h2>Riwayat Pekerjaan</h2>
+        <p>
+          Pengalaman ini berasal dari keterlibatan saya membantu usaha keluarga.
+          Dari sana saya belajar tanggung jawab, pelayanan, dan kebiasaan bekerja
+          secara langsung.
+        </p>
+      </div>
 
-    <div class="project-card">
+      <div class="panel timeline">
+        <article class="timeline-item">
+          <div class="time">2013&ndash;2015</div>
+          <div>
+            <h3>Toko kelontong milik orang tua</h3>
+            <p>Membantu operasional toko kelontong milik orang tua.</p>
+          </div>
+        </article>
 
-      <h4>Realme C21Y Debloat Tools</h4>
+        <article class="timeline-item">
+          <div class="time">2017&ndash;2020</div>
+          <div>
+            <h3>Toko roti milik orang tua</h3>
+            <p>Membantu operasional toko roti milik orang tua.</p>
+          </div>
+        </article>
 
-      <p>
-        Tool sederhana berbasis script untuk membantu pengguna
-        Realme C21Y menghapus aplikasi bawaan yang tidak diperlukan
-        agar sistem lebih ringan dan responsif.
-      </p>
+        <article class="timeline-item">
+          <div class="time">2023&ndash;2024</div>
+          <div>
+            <h3>Kios ayam geprek milik orang tua</h3>
+            <p>Membantu pengelolaan kios ayam geprek milik orang tua.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <a class="project-link"
-        href="https://github.com/KeishaXD/Realme-C21Y-Debloat-Tools"
-        target="_blank">
-        Lihat Repository →
-      </a>
+    <section id="activity">
+      <div class="section-head">
+        <h2>Riwayat Keaktifan</h2>
+        <p>
+          Beberapa kegiatan ini menjadi catatan proses saya dalam bekerja bersama
+          tim, mengatur tugas, dan menyelesaikan project di luar kegiatan belajar
+          utama.
+        </p>
+      </div>
 
-    </div>
+      <div class="panel timeline">
+        <article class="timeline-item">
+          <div class="time">2024</div>
+          <div>
+            <h3>Tim editor utama video drama</h3>
+            <p>Pernah menjadi tim editor utama dalam produksi video drama, bertanggung jawab dalam proses penyuntingan visual dan audio untuk menghasilkan video yang rapi dan menarik.</p>
+          </div>
+        </article>
 
-    <div class="project-card">
+        <article class="timeline-item">
+          <div class="time">2025</div>
+          <div>
+            <h3>Tim pembuatan scrapbook</h3>
+            <p>Pernah menjadi pemimpin tim dalam pembuatan scrapbook untuk tugas akhir, mengoordinasi ide, desain, dan pembagian tugas agar hasil akhir sesuai target.</p>
+          </div>
+        </article>
 
-      <h4>Universal Buildprop Tweak</h4>
+        <div class="panel-action">
+          <a class="btn secondary" href="krp.html">Lihat riwayat keaktifan</a>
+        </div>
+      </div>
+    </section>
 
-      <p>
-        Eksperimen tweak Android berbasis build.prop
-        untuk meningkatkan responsivitas sistem
-        dan optimasi penggunaan baterai.
-      </p>
+    <section id="projects">
+      <div class="section-head">
+        <h2>Project</h2>
+        <p>
+          Tidak semua project besar, tapi masing-masing punya cerita belajar sendiri.
+          Saya sengaja menampilkan yang paling dekat dengan minat saya sekarang.
+        </p>
+      </div>
 
-      <a class="project-link"
-        href="https://github.com/KeishaXD/Universal-Buildprop-Tweak"
-        target="_blank">
-        Lihat Repository →
-      </a>
+      <div class="project-grid">
+        <article class="project">
+          <div>
+            <span class="tagline">Desktop App</span>
+            <h3>KeiYomi</h3>
+            <p>
+              Project open-source yang berawal dari ide sederhana, lalu saya
+              wujudkan dengan bantuan AI melalui proses vibecode. Dari project ini
+              saya belajar menyusun fitur, merapikan tampilan, dan memahami alur
+              pengembangan aplikasi secara bertahap.
+            </p>
+          </div>
+          <a class="project-link" href="https://github.com/KeishaXD/KeiYomi" target="_blank" rel="noopener">Buka repository</a>
+        </article>
 
-    </div>
+        <article class="project">
+          <div>
+            <span class="tagline">Android Tools</span>
+            <h3>Realme C21Y Debloat Tools</h3>
+            <p>
+              Project sederhana berbasis Python yang sebagian besar saya kerjakan
+              sendiri. Saat membuatnya, saya banyak mengotak-atik langsung karena
+              bantuan AI waktu itu terbatas oleh token, jadi saya belajar memahami
+              alur script-nya pelan-pelan.
+            </p>
+          </div>
+          <a class="project-link" href="https://github.com/KeishaXD/Realme-C21Y-Debloat-Tools" target="_blank" rel="noopener">Buka repository</a>
+        </article>
 
-  </div>
+        <article class="project">
+          <div>
+            <span class="tagline">Module Magisk</span>
+            <h3>Universal Buildprop Tweak</h3>
+            <p>
+              Project yang saya kembangkan dengan menggabungkan beberapa build.prop tweak untuk membantu melancarkan performa Android. 
+              Project ini saya buat karena saya juga aktif sebagai salah satu admin di grup device Telegram.
+            </p>
+          </div>
+          <a class="project-link" href="https://github.com/KeishaXD/Universal-Buildprop-Tweak" target="_blank" rel="noopener">Buka repository</a>
+        </article>
+      </div>
+    </section>
 
-</section>
+    <section id="contact">
+      <div class="section-head">
+        <h2>Kontak</h2>
+        <p>
+          Untuk ngobrol soal project, kolaborasi kecil, atau sekadar bertukar catatan
+          belajar, saya paling mudah dihubungi lewat email dan GitHub.
+        </p>
+      </div>
 
-<!-- CONTACT -->
+      <div class="contact">
+        <div class="panel">
+          <span class="meta-label">Email</span>
+          <a href="mailto:jovallin.krd@gmail.com">jovallin.krd@gmail.com</a>
+        </div>
+        <div class="panel">
+          <span class="meta-label">GitHub</span>
+          <a href="https://github.com/KeishaXD" target="_blank" rel="noopener">github.com/KeishaXD</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<section id="contact">
-
-  <h2 class="section-title">Kontak</h2>
-
-  <div class="card">
-
-    <div class="list">
-      <div>Email : jovallin.krd@gmail.com</div>
-      <div>GitHub : github.com/KeishaXD</div>
-    </div>
-
-  </div>
-
-</section>
-
-<footer>
-  © 2026 Jovallin Keisha Rafael Dewantara
-</footer>
-
+  <footer>
+    <div class="wrap">&copy; 2026 Jovallin Keisha Rafael Dewantara. Dibuat sebagai ruang belajar dan arsip project pribadi.</div>
+  </footer>
 </body>
 </html>
